@@ -30,9 +30,23 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
 - FTK Imager
 - LAPS (Local Administrator Password Solution)
 
+## Scripts Desarrollados
+- `malware_detector.py`: Herramienta para detección básica de malware
+  - Análisis de archivos PE
+  - Cálculo de hashes MD5
+  - Escaneo de directorios
+- `log_analyzer.py`: Herramienta para análisis de logs
+  - Procesamiento de logs de eventos
+  - Detección de patrones sospechosos
+  - Generación de reportes
+
 ## Estructura del Proyecto
 - `documentacion/`: Guías y manuales
 - `scripts/`: Scripts de automatización
+  - `utilidades/`: Scripts de utilidad
+    - `malware_detector.py`
+    - `log_analyzer.py`
+    - `requirements.txt`
 - `playbooks/`: Playbooks de respuesta a incidentes
 - `herramientas/`: Herramientas personalizadas
 - `casos/`: Casos de estudio y análisis
@@ -42,6 +56,8 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
 - ✅ Seguridad en Active Directory (Completado)
 - ✅ Aspectos Investigativos Básicos (Completado)
 - 🔄 Software Malicioso (En progreso)
+  - ✅ Script de detección básica de malware
+  - ⏳ Análisis avanzado de malware
 - ⏳ Phishing y OSINT (Pendiente)
 - ⏳ PuP y Exploits (Pendiente)
 - ⏳ Seguridad de Servidores (Pendiente)
