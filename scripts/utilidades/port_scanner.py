@@ -4,8 +4,8 @@ import sys
 from datetime import datetime
 
 def scan_ports(target, start_port, end_port):
-    print(f"\nEscaneando objetivo: {target}")
-    print(f"Rango de puertos: {start_port}-{end_port}")
+    print(f"\nScanning target: {target}")
+    print(f"Port range: {start_port}-{end_port}")
     print("-" * 50)
     
     start_time = datetime.now()
@@ -17,26 +17,26 @@ def scan_ports(target, start_port, end_port):
             result = sock.connect_ex((target, port))
             
             if result == 0:
-                print(f"Puerto {port}: Abierto")
+                print(f"Port {port}: Open")
             sock.close()
             
     except KeyboardInterrupt:
-        print("\nEscaneo interrumpido por el usuario")
+        print("\nScan interrupted by user")
         sys.exit()
     except socket.gaierror:
-        print("No se pudo resolver el nombre de host")
+        print("Could not resolve hostname")
         sys.exit()
     except socket.error:
-        print("No se pudo conectar al servidor")
+        print("Could not connect to server")
         sys.exit()
     
     end_time = datetime.now()
-    print(f"\nEscaneo completado en: {end_time - start_time}")
+    print(f"\nScan completed in: {end_time - start_time}")
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("Uso: python port_scanner.py <host> <puerto_inicio> <puerto_fin>")
-        print("Ejemplo: python port_scanner.py 192.168.1.1 1 1000")
+        print("Usage: python port_scanner.py <host> <start_port> <end_port>")
+        print("Example: python port_scanner.py 192.168.1.1 1 1000")
         sys.exit()
     
     target = sys.argv[1]

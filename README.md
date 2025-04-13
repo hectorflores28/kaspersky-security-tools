@@ -35,10 +35,30 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
   - Análisis de archivos PE
   - Cálculo de hashes MD5
   - Escaneo de directorios
+- `advanced_malware_analyzer.py`: Herramienta para análisis avanzado de malware
+  - Análisis estático y dinámico
+  - Detección de firmas con YARA
+  - Análisis de comportamiento
+  - Generación de reportes detallados
 - `log_analyzer.py`: Herramienta para análisis de logs
   - Procesamiento de logs de eventos
   - Detección de patrones sospechosos
   - Generación de reportes
+- `email_analyzer.py`: Herramienta para análisis de correos electrónicos
+  - Análisis de headers y contenido
+  - Detección de indicadores de phishing
+  - Análisis de URLs y adjuntos
+  - Cálculo de nivel de riesgo
+- `vulnerability_analyzer.py`: Herramienta para análisis de vulnerabilidades
+  - Escaneo de puertos y servicios
+  - Detección de vulnerabilidades conocidas
+  - Análisis de configuraciones
+  - Cálculo de nivel de riesgo
+- `memory_analyzer.py`: Herramienta para análisis de memoria
+  - Análisis de procesos
+  - Detección de conexiones sospechosas
+  - Búsqueda de indicadores de compromiso
+  - Generación de reportes detallados
 
 ## Estructura del Proyecto
 - `documentacion/`: Guías y manuales
@@ -47,6 +67,10 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
     - `malware_detector.py`
     - `log_analyzer.py`
     - `requirements.txt`
+  - `analisis/`: Scripts de análisis
+    - `email_analyzer.py`
+    - `vulnerability_analyzer.py`
+    - `memory_analyzer.py`
 - `playbooks/`: Playbooks de respuesta a incidentes
 - `herramientas/`: Herramientas personalizadas
 - `casos/`: Casos de estudio y análisis
@@ -55,18 +79,25 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
 ## Estado Actual
 - ✅ Seguridad en Active Directory (Completado)
 - ✅ Aspectos Investigativos Básicos (Completado)
-- 🔄 Software Malicioso (En progreso)
+- ✅ Software Malicioso (Completado)
   - ✅ Script de detección básica de malware
-  - ⏳ Análisis avanzado de malware
-- ⏳ Phishing y OSINT (Pendiente)
-- ⏳ PuP y Exploits (Pendiente)
-- ⏳ Seguridad de Servidores (Pendiente)
+  - ✅ Análisis avanzado de malware
+- ✅ Phishing y OSINT (Completado)
+  - ✅ Script de análisis de correos
+  - ✅ Detección de indicadores de phishing
+- ✅ PuP y Exploits (Completado)
+  - ✅ Script de análisis de vulnerabilidades
+  - ✅ Detección de exploits conocidos
+- 🔄 Seguridad de Servidores (En progreso)
+  - ✅ Script de análisis de memoria
+  - ⏳ Scripts de hardening
+  - ⏳ Monitoreo de servicios
 
 ## Próximos Pasos
-1. Desarrollar playbooks de respuesta a incidentes
-2. Crear scripts de automatización para análisis forense
-3. Implementar sistema de monitoreo de red con ntopng
-4. Desarrollar herramientas de análisis de logs
+1. Desarrollar scripts de hardening para servidores
+2. Implementar sistema de monitoreo de servicios
+3. Crear playbooks de respuesta a incidentes
+4. Desarrollar sistema de monitoreo de red con ntopng
 5. Crear base de datos de firmas de malware
 
 ## Contribución
