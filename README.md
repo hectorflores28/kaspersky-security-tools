@@ -137,4 +137,4 @@ Las contribuciones son bienvenidas. Por favor, asegúrate de:
 4. Actualizar la documentación correspondiente
 
 ## Licencia
-Este proyecto está bajo la licencia MIT. Ver el archivo `LICENSE` para más detalles.
+Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
