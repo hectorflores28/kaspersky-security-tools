@@ -1,38 +1,27 @@
 # Scripts de Automatización
 
-Esta carpeta contiene scripts útiles para tareas básicas de ciberseguridad.
+Este directorio contiene los scripts de automatización para diversas tareas de ciberseguridad.
 
-## Scripts Disponibles
+## Estructura
 
-### Utilidades
-1. `port_scanner.py`
-   - Escaneo básico de puertos
-   - Uso: `python port_scanner.py <host> <puerto_inicio> <puerto_fin>`
-   - Ejemplo: `python port_scanner.py 192.168.1.1 1 1000`
-
-2. `dir_enum.py`
-   - Enumeración de directorios web
-   - Uso: `python dir_enum.py <url> <wordlist>`
-   - Ejemplo: `python dir_enum.py http://example.com wordlist.txt`
-
-3. `subdomain_enum.py`
-   - Enumeración de subdominios
-   - Uso: `python subdomain_enum.py <dominio> <wordlist>`
-   - Ejemplo: `python subdomain_enum.py example.com subdomains.txt`
+- `monitoreo/`: Scripts para monitoreo de sistemas y redes
+- `analisis/`: Scripts para análisis forense y de seguridad
+- `automatizacion/`: Scripts para automatización de tareas
+- `utilidades/`: Scripts de utilidad general
 
 ## Requisitos
-Instalar las dependencias:
-```bash
-pip install -r requirements.txt
-```
 
-## Notas de Uso
-- Estos scripts son herramientas básicas para aprendizaje
-- Úselos solo en sistemas que tenga permiso para probar
-- No se recomienda su uso en entornos de producción sin modificaciones adicionales
+Los scripts requieren las siguientes dependencias:
+- Python 3.8+
+- Dependencias listadas en `requirements.txt`
 
-## Mejoras Planificadas
-- Agregar soporte para proxies
-- Implementar manejo de errores más robusto
-- Agregar opciones de personalización
-- Mejorar la velocidad de ejecución 
+## Uso
+
+Cada script incluye su propia documentación y ejemplos de uso.
+
+## Contribución
+
+1. Seguir las guías de estilo
+2. Documentar los cambios
+3. Probar las modificaciones
+4. Actualizar la documentación 
