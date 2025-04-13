@@ -31,34 +31,39 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
 - LAPS (Local Administrator Password Solution)
 
 ## Scripts Desarrollados
-- `malware_detector.py`: Herramienta para detección básica de malware
-  - Análisis de archivos PE
-  - Cálculo de hashes MD5
-  - Escaneo de directorios
-- `advanced_malware_analyzer.py`: Herramienta para análisis avanzado de malware
-  - Análisis estático y dinámico
-  - Detección de firmas con YARA
-  - Análisis de comportamiento
-  - Generación de reportes detallados
-- `log_analyzer.py`: Herramienta para análisis de logs
-  - Procesamiento de logs de eventos
-  - Detección de patrones sospechosos
-  - Generación de reportes
-- `email_analyzer.py`: Herramienta para análisis de correos electrónicos
-  - Análisis de headers y contenido
-  - Detección de indicadores de phishing
-  - Análisis de URLs y adjuntos
-  - Cálculo de nivel de riesgo
-- `vulnerability_analyzer.py`: Herramienta para análisis de vulnerabilidades
-  - Escaneo de puertos y servicios
-  - Detección de vulnerabilidades conocidas
-  - Análisis de configuraciones
-  - Cálculo de nivel de riesgo
-- `memory_analyzer.py`: Herramienta para análisis de memoria
-  - Análisis de procesos
-  - Detección de conexiones sospechosas
-  - Búsqueda de indicadores de compromiso
-  - Generación de reportes detallados
+Para una descripción detallada de cada script, consulta el [README de scripts](scripts/README.md).
+
+### Análisis y Forense
+- [vulnerability_analyzer.py](scripts/README.md#análisis-y-forense): Análisis de vulnerabilidades
+- [advanced_malware_analyzer.py](scripts/README.md#análisis-y-forense): Análisis avanzado de malware
+- [memory_analyzer.py](scripts/README.md#análisis-y-forense): Análisis de memoria
+- [security_log_analyzer.py](scripts/README.md#análisis-y-forense): Análisis de logs
+- [server_hardening.py](scripts/README.md#análisis-y-forense): Hardening de servidores
+- [email_analyzer.py](scripts/README.md#análisis-y-forense): Análisis de correos
+- [service_monitor.py](scripts/README.md#análisis-y-forense): Monitoreo de servicios
+
+### Fuerza Bruta
+- [john_brute.py](scripts/README.md#fuerza-bruta): Fuerza bruta con John the Ripper
+- [hydra_brute.py](scripts/README.md#fuerza-bruta): Fuerza bruta con Hydra
+
+### Escaneo de Redes
+- [nmap_scan.py](scripts/README.md#escaneo-de-redes): Script base de Nmap
+- [nmap_quick.py](scripts/README.md#escaneo-de-redes): Escaneo rápido
+- [nmap_completo.py](scripts/README.md#escaneo-de-redes): Escaneo completo
+- [nmap_os.py](scripts/README.md#escaneo-de-redes): Detección de SO
+
+### Detección de Amenazas
+- [detector_malware.py](scripts/README.md#detección-de-amenazas): Detector básico de malware
+- [malware_detector.py](scripts/README.md#detección-de-amenazas): Detector avanzado de malware
+
+### Monitoreo
+- [monitor_procesos.py](scripts/README.md#monitoreo): Monitoreo de procesos
+
+### Utilidades
+- [dir_enum.py](scripts/README.md#utilidades): Enumeración de directorios
+- [port_scanner.py](scripts/README.md#utilidades): Escáner de puertos
+- [subdomain_enum.py](scripts/README.md#utilidades): Enumeración de subdominios
+- [log_analyzer.py](scripts/README.md#utilidades): Análisis de logs
 
 ## Estructura del Proyecto
 - `documentacion/`: Guías y manuales
@@ -66,11 +71,27 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
   - `utilidades/`: Scripts de utilidad
     - `malware_detector.py`
     - `log_analyzer.py`
-    - `requirements.txt`
+    - `port_scanner.py`
+    - `dir_enum.py`
+    - `subdomain_enum.py`
   - `analisis/`: Scripts de análisis
     - `email_analyzer.py`
     - `vulnerability_analyzer.py`
     - `memory_analyzer.py`
+    - `security_log_analyzer.py`
+    - `server_hardening.py`
+  - `brute_force/`: Scripts de fuerza bruta
+    - `john_brute.py`
+    - `hydra_brute.py`
+  - `scanning/`: Scripts de escaneo
+    - `nmap_scan.py`
+    - `nmap_quick.py`
+    - `nmap_completo.py`
+    - `nmap_os.py`
+  - `monitoring/`: Scripts de monitoreo
+    - `monitor_procesos.py`
+  - `detection/`: Scripts de detección
+    - `detector_malware.py`
 - `playbooks/`: Playbooks de respuesta a incidentes
 - `herramientas/`: Herramientas personalizadas
 - `casos/`: Casos de estudio y análisis
