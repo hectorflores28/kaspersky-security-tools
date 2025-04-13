@@ -1,5 +1,13 @@
 # Proyecto de Documentación de Ciberseguridad
 
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![Kaspersky](https://img.shields.io/badge/Kaspersky-Business_Hub-orange.svg)
+![Nmap](https://img.shields.io/badge/Nmap-7.80+-green.svg)
+![John](https://img.shields.io/badge/John_the_Ripper-1.9.0+-yellow.svg)
+![Hydra](https://img.shields.io/badge/Hydra-9.3+-red.svg)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)
+
 Este proyecto tiene como objetivo documentar y analizar los conceptos, herramientas y técnicas aprendidas en los cursos de Kaspersky Business Hub, con un enfoque en la escalabilidad y automatización de procesos de seguridad.
 
 ## Objetivos
