@@ -67,4 +67,27 @@ __pycache__/
 
 # Archivos de sistema
 Thumbs.db
-.DS_Store 
+.DS_Store
+
+# Documentación generada
+docs/_build/
+site/
+
+# Tests
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Logs y datos
+*.log
+logs/
+data/samples/
+data/logs/
+*.db
+*.sqlite3
+
+# Configuración local
+.env
+.env.local
+config/local.yaml 
