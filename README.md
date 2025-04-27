@@ -48,13 +48,16 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
 Para una descripción detallada de cada script, consulta el [README de scripts](scripts/README.md).
 
 ### Análisis y Forense
-- [vulnerability_analyzer.py](scripts/README.md#análisis-y-forense): Análisis de vulnerabilidades
-- [advanced_malware_analyzer.py](scripts/README.md#análisis-y-forense): Análisis avanzado de malware
-- [memory_analyzer.py](scripts/README.md#análisis-y-forense): Análisis de memoria
-- [security_log_analyzer.py](scripts/README.md#análisis-y-forense): Análisis de logs
-- [server_hardening.py](scripts/README.md#análisis-y-forense): Hardening de servidores
-- [email_analyzer.py](scripts/README.md#análisis-y-forense): Análisis de correos
-- [service_monitor.py](scripts/README.md#análisis-y-forense): Monitoreo de servicios
+- [file_system_analyzer.py](scripts/analisis/file_system_analyzer.py): Analiza el sistema de archivos en busca de indicadores de compromiso
+- [registry_analyzer.py](scripts/analisis/registry_analyzer.py): Analiza el registro de Windows en busca de actividad maliciosa
+- [network_traffic_analyzer.py](scripts/analisis/network_traffic_analyzer.py): Analiza el tráfico de red en busca de patrones sospechosos
+- [service_monitor.py](scripts/analisis/service_monitor.py): Monitorea servicios en servidores Windows
+- [server_hardening.py](scripts/analisis/server_hardening.py): Verifica y aplica configuraciones de seguridad en servidores
+- [vulnerability_analyzer.py](scripts/analisis/vulnerability_analyzer.py): Analiza sistemas en busca de vulnerabilidades
+- [email_analyzer.py](scripts/analisis/email_analyzer.py): Analiza correos electrónicos en busca de phishing
+- [advanced_malware_analyzer.py](scripts/analisis/advanced_malware_analyzer.py): Analizador avanzado de malware
+- [security_log_analyzer.py](scripts/analisis/security_log_analyzer.py): Analiza logs de seguridad
+- [memory_analyzer.py](scripts/analisis/memory_analyzer.py): Analiza volcados de memoria
 
 ### Fuerza Bruta
 - [john_brute.py](scripts/README.md#fuerza-bruta): Fuerza bruta con John the Ripper

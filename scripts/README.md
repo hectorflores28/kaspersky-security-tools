@@ -15,13 +15,47 @@ Este directorio contiene los scripts de automatización para diversas tareas de 
 ## Scripts Disponibles
 
 ### Análisis y Forense
-- [vulnerability_analyzer.py](analisis/vulnerability_analyzer.py): Analiza sistemas en busca de vulnerabilidades conocidas, incluyendo análisis de puertos, servicios y configuraciones
-- [advanced_malware_analyzer.py](analisis/advanced_malware_analyzer.py): Analizador avanzado de malware con reglas YARA, análisis estático y dinámico
-- [memory_analyzer.py](analisis/memory_analyzer.py): Analiza volcados de memoria en busca de indicadores de compromiso y procesos maliciosos
-- [security_log_analyzer.py](analisis/security_log_analyzer.py): Analiza logs de seguridad en busca de patrones sospechosos y eventos de seguridad
-- [server_hardening.py](analisis/server_hardening.py): Verifica y aplica configuraciones de seguridad en servidores Windows
-- [email_analyzer.py](analisis/email_analyzer.py): Analiza correos electrónicos en busca de patrones de phishing y malware
-- [service_monitor.py](analisis/service_monitor.py): Monitorea servicios y procesos en sistemas Windows
+- [file_system_analyzer.py](analisis/file_system_analyzer.py): Analiza el sistema de archivos en busca de indicadores de compromiso y actividad maliciosa
+  - Detección de archivos sospechosos
+  - Análisis de permisos
+  - Cálculo de hashes
+  - Generación de reportes
+- [registry_analyzer.py](analisis/registry_analyzer.py): Analiza el registro de Windows en busca de actividad maliciosa
+  - Análisis de claves de inicio
+  - Detección de servicios sospechosos
+  - Monitoreo de cambios
+- [network_traffic_analyzer.py](analisis/network_traffic_analyzer.py): Analiza el tráfico de red en busca de patrones sospechosos
+  - Análisis de paquetes DNS
+  - Detección de patrones HTTP
+  - Monitoreo de conexiones TCP
+- [service_monitor.py](analisis/service_monitor.py): Monitorea servicios en servidores Windows
+  - Estado de servicios
+  - Detección de cambios
+  - Análisis de anomalías
+- [server_hardening.py](analisis/server_hardening.py): Verifica y aplica configuraciones de seguridad en servidores
+  - Verificación de servicios
+  - Análisis de políticas
+  - Recomendaciones de seguridad
+- [vulnerability_analyzer.py](analisis/vulnerability_analyzer.py): Analiza sistemas en busca de vulnerabilidades
+  - Escaneo de puertos
+  - Análisis de servicios
+  - Detección de vulnerabilidades
+- [email_analyzer.py](analisis/email_analyzer.py): Analiza correos electrónicos en busca de phishing
+  - Análisis de headers
+  - Detección de URLs maliciosas
+  - Análisis de adjuntos
+- [advanced_malware_analyzer.py](analisis/advanced_malware_analyzer.py): Analizador avanzado de malware
+  - Análisis estático y dinámico
+  - Detección de firmas
+  - Análisis de comportamiento
+- [security_log_analyzer.py](analisis/security_log_analyzer.py): Analiza logs de seguridad
+  - Detección de patrones sospechosos
+  - Análisis de eventos
+  - Generación de reportes
+- [memory_analyzer.py](analisis/memory_analyzer.py): Analiza volcados de memoria
+  - Análisis de procesos
+  - Detección de conexiones
+  - Búsqueda de indicadores
 
 ### Fuerza Bruta
 - [john_brute.py](brute_force/john_brute.py): Realiza ataques de fuerza bruta con John the Ripper en archivos de hashes
