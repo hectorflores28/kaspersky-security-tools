@@ -4,154 +4,126 @@ Este directorio contiene los scripts de automatización para diversas tareas de 
 
 ## Estructura
 
-- `monitoring/`: Scripts para monitoreo de sistemas y redes
-- `analisis/`: Scripts para análisis forense y de seguridad
-- `automation/`: Scripts para automatización de tareas
-- `utilidades/`: Scripts de utilidad general
-- `brute_force/`: Scripts para ataques de fuerza bruta
-- `scanning/`: Scripts para escaneo de redes y sistemas
-- `detection/`: Scripts para detección de amenazas
-
-## Scripts Disponibles
-
-### Análisis y Forense
-- [file_system_analyzer.py](analisis/file_system_analyzer.py): Analiza el sistema de archivos en busca de indicadores de compromiso y actividad maliciosa
-  - Detección de archivos sospechosos
-  - Análisis de permisos
-  - Cálculo de hashes
-  - Generación de reportes
-- [registry_analyzer.py](analisis/registry_analyzer.py): Analiza el registro de Windows en busca de actividad maliciosa
-  - Análisis de claves de inicio
-  - Detección de servicios sospechosos
-  - Monitoreo de cambios
-- [network_traffic_analyzer.py](analisis/network_traffic_analyzer.py): Analiza el tráfico de red en busca de patrones sospechosos
-  - Análisis de paquetes DNS
-  - Detección de patrones HTTP
-  - Monitoreo de conexiones TCP
-- [service_monitor.py](analisis/service_monitor.py): Monitorea servicios en servidores Windows
-  - Estado de servicios
-  - Detección de cambios
-  - Análisis de anomalías
-- [server_hardening.py](analisis/server_hardening.py): Verifica y aplica configuraciones de seguridad en servidores
-  - Verificación de servicios
-  - Análisis de políticas
-  - Recomendaciones de seguridad
-- [vulnerability_analyzer.py](analisis/vulnerability_analyzer.py): Analiza sistemas en busca de vulnerabilidades
-  - Escaneo de puertos
-  - Análisis de servicios
-  - Detección de vulnerabilidades
-- [email_analyzer.py](analisis/email_analyzer.py): Analiza correos electrónicos en busca de phishing
-  - Análisis de headers
-  - Detección de URLs maliciosas
-  - Análisis de adjuntos
-- [advanced_malware_analyzer.py](analisis/advanced_malware_analyzer.py): Analizador avanzado de malware
-  - Análisis estático y dinámico
-  - Detección de firmas
-  - Análisis de comportamiento
-- [security_log_analyzer.py](analisis/security_log_analyzer.py): Analiza logs de seguridad
-  - Detección de patrones sospechosos
-  - Análisis de eventos
-  - Generación de reportes
-- [memory_analyzer.py](analisis/memory_analyzer.py): Analiza volcados de memoria
-  - Análisis de procesos
-  - Detección de conexiones
-  - Búsqueda de indicadores
-
-### Fuerza Bruta
-- [john_brute.py](brute_force/john_brute.py): Realiza ataques de fuerza bruta con John the Ripper en archivos de hashes
-  - Soporte para múltiples formatos de hash
-  - Uso de wordlists personalizadas
-  - Identificación automática de formato
-- [hydra_brute.py](brute_force/hydra_brute.py): Realiza ataques de fuerza bruta con Hydra en diferentes servicios
-  - Soporte para SSH, FTP, HTTP, HTTPS, SMB, RDP, Telnet
-  - Configuración flexible de parámetros
-  - Monitoreo en tiempo real
-
-### Escaneo de Redes
-- [nmap_scan.py](scanning/nmap_scan.py): Script base para escaneos con Nmap, proporciona funcionalidad común
-  - Manejo de resultados en XML
-  - Logging detallado
-  - Interfaz unificada
-- [nmap_quick.py](scanning/nmap_quick.py): Escaneo rápido de puertos y servicios
-  - Top 100 puertos
-  - Modo sigiloso
-  - Resultados rápidos
-- [nmap_completo.py](scanning/nmap_completo.py): Escaneo exhaustivo de puertos, servicios y vulnerabilidades
-  - Escaneo de todos los puertos
-  - Detección de servicios
-  - Análisis de vulnerabilidades
-- [nmap_os.py](scanning/nmap_os.py): Detección de sistema operativo
-  - Fingerprinting de SO
-  - Detección de versión
-  - Análisis de servicios
-
-### Detección de Amenazas
-- [detector_malware.py](detection/detector_malware.py): Detector básico de malware con análisis de firmas y comportamiento
-- [malware_detector.py](utilidades/malware_detector.py): Detector avanzado de malware con análisis heurístico
-
-### Monitoreo
-- [monitor_procesos.py](monitoring/monitor_procesos.py): Monitorea procesos en ejecución y detecta anomalías
-  - Monitoreo en tiempo real
-  - Detección de procesos sospechosos
-  - Alertas configurables
-
-### Utilidades
-- [dir_enum.py](utilidades/dir_enum.py): Enumeración de directorios web con soporte para wordlists
-- [port_scanner.py](utilidades/port_scanner.py): Escáner básico de puertos con detección de servicios
-- [subdomain_enum.py](utilidades/subdomain_enum.py): Enumeración de subdominios con verificación de existencia
-- [log_analyzer.py](utilidades/log_analyzer.py): Analizador de logs con detección de patrones sospechosos
-
-## Requisitos
-
-Los scripts requieren las siguientes dependencias:
-- Python 3.8+
-- Dependencias listadas en [requirements.txt](utilidades/requirements.txt)
-- Herramientas externas:
-  - John the Ripper
-  - Hydra
-  - Nmap
-  - YARA (para análisis de malware)
-  - Volatility (para análisis de memoria)
-
-## Uso
-
-Cada script incluye su propia documentación y ejemplos de uso. Los scripts principales incluyen:
-
-### John the Ripper
-```bash
-python john_brute.py archivo_hashes.txt --wordlist wordlist.txt
+```
+scripts/
+└── utilidades/           # Utilidades comunes
+    └── common.py        # Módulo de utilidades compartidas
 ```
 
-### Hydra
-```bash
-python hydra_brute.py target.com ssh wordlist.txt --username admin --port 22
+## Utilidades Comunes
+
+El módulo `common.py` proporciona funcionalidades básicas utilizadas por todos los scripts:
+
+### Configuración
+```python
+from scripts.utilidades.common import Config
+
+# Cargar configuración
+config = Config()
+value = config.get("seccion.clave", "valor_por_defecto")
 ```
 
-### Nmap
-```bash
-# Escaneo rápido
-python nmap_quick.py target.com
+### Logging
+```python
+from scripts.utilidades.common import Logger
 
-# Escaneo completo
-python nmap_completo.py target.com
-
-# Detección de SO
-python nmap_os.py target.com
+# Configurar logging
+logger = Logger("mi_script").get_logger()
+logger.info("Mensaje informativo")
+logger.error("Mensaje de error")
 ```
 
-### Análisis de Malware
-```bash
-python advanced_malware_analyzer.py muestra.exe --rules reglas_yara
+### Análisis de Archivos
+```python
+from scripts.utilidades.common import FileAnalyzer
+
+# Calcular hash
+hash_value = FileAnalyzer.get_file_hash("archivo.txt")
+
+# Obtener tipo de archivo
+file_type = FileAnalyzer.get_file_type("archivo.txt")
+
+# Obtener metadatos
+metadata = FileAnalyzer.get_file_metadata("archivo.txt")
 ```
 
-### Análisis de Logs
-```bash
-python security_log_analyzer.py security.log
+### Utilidades de Red
+```python
+from scripts.utilidades.common import NetworkUtils
+
+# Verificar puerto
+is_open = NetworkUtils.is_port_open("localhost", 80)
+
+# Obtener IP pública
+public_ip = NetworkUtils.get_public_ip()
 ```
 
-## Contribución
+### Generación de Reportes
+```python
+from scripts.utilidades.common import ReportGenerator
 
-1. Seguir las guías de estilo
-2. Documentar los cambios
-3. Probar las modificaciones
-4. Actualizar la documentación 
+# Generar reporte
+generator = ReportGenerator()
+report_path = generator.generate_report({"data": "value"}, "mi_reporte")
+```
+
+## Desarrollo de Nuevos Scripts
+
+Al desarrollar nuevos scripts, se recomienda:
+
+1. Utilizar las utilidades comunes proporcionadas
+2. Seguir las guías de estilo del proyecto
+3. Incluir pruebas unitarias
+4. Documentar el código
+5. Manejar errores apropiadamente
+6. Usar el sistema de logging
+
+### Ejemplo de Script
+
+```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+Nombre del Script
+Descripción detallada del script
+"""
+
+from scripts.utilidades.common import Config, Logger, FileAnalyzer
+
+def main():
+    # Configuración
+    config = Config()
+    logger = Logger("mi_script").get_logger()
+    
+    try:
+        # Lógica del script
+        logger.info("Iniciando script")
+        
+        # Ejemplo de uso de utilidades
+        metadata = FileAnalyzer.get_file_metadata("archivo.txt")
+        logger.info(f"Metadatos: {metadata}")
+        
+    except Exception as e:
+        logger.error(f"Error: {e}")
+        return 1
+        
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())
+```
+
+## Próximos Pasos
+
+1. Desarrollar scripts específicos para cada área:
+   - Análisis forense
+   - Monitoreo de red
+   - Detección de malware
+   - Escaneo de vulnerabilidades
+
+2. Implementar pruebas unitarias para cada script
+
+3. Crear documentación detallada de uso
+
+4. Desarrollar una interfaz de línea de comandos unificada 

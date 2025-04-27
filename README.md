@@ -110,10 +110,6 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
     - `monitor_procesos.py`
   - `detection/`: Scripts de detección
     - `detector_malware.py`
-- `playbooks/`: Playbooks de respuesta a incidentes
-- `herramientas/`: Herramientas personalizadas
-- `casos/`: Casos de estudio y análisis
-- `logs/`: Registros y análisis
 
 ## Estado Actual
 - ✅ Seguridad en Active Directory (Completado)
