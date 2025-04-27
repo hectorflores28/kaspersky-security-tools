@@ -1,4 +1,4 @@
-# Proyecto de Documentación de Ciberseguridad
+# Herramientas de Seguridad Kaspersky Business Hub
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![Kaspersky](https://img.shields.io/badge/Kaspersky-Business_Hub-orange.svg)
@@ -23,6 +23,12 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
 - Seguridad en Active Directory
 - Aspectos investigativos básicos
 - Software malicioso
+  - Análisis heurístico
+  - Detección de anomalías
+  - Análisis de procesos
+  - Inyección de código
+  - Redes de bots
+  - Fuerza bruta
 - Phishing y OSINT
 - PuP y exploits
 - Seguridad de servidores
@@ -75,6 +81,7 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
 
 ## Estructura del Proyecto
 - `documentacion/`: Guías y manuales
+  - `malware/`: Documentación sobre software malicioso
 - `scripts/`: Scripts de automatización
   - `utilidades/`: Scripts de utilidad
     - `malware_detector.py`
@@ -109,8 +116,12 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
 - ✅ Seguridad en Active Directory (Completado)
 - ✅ Aspectos Investigativos Básicos (Completado)
 - ✅ Software Malicioso (Completado)
-  - ✅ Script de detección básica de malware
-  - ✅ Análisis avanzado de malware
+  - ✅ Análisis heurístico
+  - ✅ Detección de anomalías
+  - ✅ Análisis de procesos
+  - ✅ Inyección de código
+  - ✅ Redes de bots
+  - ✅ Fuerza bruta
 - ✅ Phishing y OSINT (Completado)
   - ✅ Script de análisis de correos
   - ✅ Detección de indicadores de phishing
