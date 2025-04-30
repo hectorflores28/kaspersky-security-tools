@@ -6,8 +6,16 @@ Este directorio contiene los scripts de automatización para diversas tareas de 
 
 ```
 scripts/
-└── utilidades/           # Utilidades comunes
-    └── common.py        # Módulo de utilidades compartidas
+├── utilidades/           # Utilidades comunes
+│   └── common.py        # Módulo de utilidades compartidas
+├── phishing/            # Scripts de phishing
+│   ├── phishing_detector.py
+│   └── url_analyzer.py
+└── osint/               # Scripts de OSINT
+    ├── osint_tools.py
+    ├── dns_analyzer.py
+    ├── social_media_analyzer.py
+    └── leak_detector.py
 ```
 
 ## Utilidades Comunes
@@ -67,6 +75,86 @@ generator = ReportGenerator()
 report_path = generator.generate_report({"data": "value"}, "mi_reporte")
 ```
 
+## Scripts de Phishing
+
+### phishing_detector.py
+```python
+from scripts.phishing.phishing_detector import PhishingDetector
+
+# Analizar correo electrónico
+detector = PhishingDetector()
+result = detector.analyze_email("correo.eml")
+
+# Verificar indicadores de phishing
+if result.is_phishing:
+    print(f"Correo detectado como phishing: {result.reason}")
+```
+
+### url_analyzer.py
+```python
+from scripts.phishing.url_analyzer import URLAnalyzer
+
+# Analizar URL
+analyzer = URLAnalyzer()
+result = analyzer.analyze_url("https://ejemplo.com")
+
+# Verificar si es maliciosa
+if result.is_malicious:
+    print(f"URL maliciosa detectada: {result.threat_type}")
+```
+
+## Scripts de OSINT
+
+### osint_tools.py
+```python
+from scripts.osint.osint_tools import OSINTTools
+
+# Inicializar herramientas OSINT
+tools = OSINTTools()
+
+# Buscar información de dominio
+domain_info = tools.search_domain("ejemplo.com")
+
+# Analizar redes sociales
+social_info = tools.analyze_social_media("usuario")
+```
+
+### dns_analyzer.py
+```python
+from scripts.osint.dns_analyzer import DNSAnalyzer
+
+# Analizar registros DNS
+analyzer = DNSAnalyzer()
+records = analyzer.get_dns_records("ejemplo.com")
+
+# Verificar propagación
+propagation = analyzer.check_propagation("ejemplo.com")
+```
+
+### social_media_analyzer.py
+```python
+from scripts.osint.social_media_analyzer import SocialMediaAnalyzer
+
+# Analizar presencia en redes sociales
+analyzer = SocialMediaAnalyzer()
+profiles = analyzer.find_profiles("usuario")
+
+# Analizar actividad
+activity = analyzer.analyze_activity("usuario")
+```
+
+### leak_detector.py
+```python
+from scripts.osint.leak_detector import LeakDetector
+
+# Verificar filtraciones
+detector = LeakDetector()
+leaks = detector.check_leaks("usuario@ejemplo.com")
+
+# Analizar impacto
+impact = detector.analyze_impact(leaks)
+```
+
 ## Desarrollo de Nuevos Scripts
 
 Al desarrollar nuevos scripts, se recomienda:
@@ -121,6 +209,8 @@ if __name__ == "__main__":
    - Monitoreo de red
    - Detección de malware
    - Escaneo de vulnerabilidades
+   - Detección de phishing
+   - Herramientas OSINT
 
 2. Implementar pruebas unitarias para cada script
 

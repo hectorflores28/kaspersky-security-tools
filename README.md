@@ -30,6 +30,10 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
   - Redes de bots
   - Fuerza bruta
 - Phishing y OSINT
+  - Detección de phishing por correo electrónico
+  - Análisis de enlaces maliciosos
+  - Inteligencia de código abierto
+  - Auditorías de seguridad con OSINT
 - PuP y exploits
 - Seguridad de servidores
 
@@ -43,6 +47,11 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
 - Autoruns
 - FTK Imager
 - LAPS (Local Administrator Password Solution)
+- Recon-ng (OSINT)
+- Shodan
+- BuiltWith
+- HackerTarget
+- FreeGeoIP
 
 ## Scripts Desarrollados
 Para una descripción detallada de cada script, consulta el [README de scripts](scripts/README.md).
@@ -58,6 +67,14 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
 - [advanced_malware_analyzer.py](scripts/analisis/advanced_malware_analyzer.py): Analizador avanzado de malware
 - [security_log_analyzer.py](scripts/analisis/security_log_analyzer.py): Analiza logs de seguridad
 - [memory_analyzer.py](scripts/analisis/memory_analyzer.py): Analiza volcados de memoria
+
+### Phishing y OSINT
+- [phishing_detector.py](scripts/phishing/phishing_detector.py): Detecta intentos de phishing en correos electrónicos
+- [url_analyzer.py](scripts/phishing/url_analyzer.py): Analiza URLs maliciosas
+- [osint_tools.py](scripts/osint/osint_tools.py): Herramientas de inteligencia de código abierto
+- [dns_analyzer.py](scripts/osint/dns_analyzer.py): Analiza registros DNS y propagación
+- [social_media_analyzer.py](scripts/osint/social_media_analyzer.py): Analiza presencia en redes sociales
+- [leak_detector.py](scripts/osint/leak_detector.py): Detecta filtraciones de información
 
 ### Fuerza Bruta
 - [john_brute.py](scripts/README.md#fuerza-bruta): Fuerza bruta con John the Ripper
@@ -85,6 +102,7 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
 ## Estructura del Proyecto
 - `documentacion/`: Guías y manuales
   - `malware/`: Documentación sobre software malicioso
+  - `phishing/`: Documentación sobre phishing y OSINT
 - `scripts/`: Scripts de automatización
   - `utilidades/`: Scripts de utilidad
     - `malware_detector.py`
@@ -98,6 +116,14 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
     - `memory_analyzer.py`
     - `security_log_analyzer.py`
     - `server_hardening.py`
+  - `phishing/`: Scripts de phishing
+    - `phishing_detector.py`
+    - `url_analyzer.py`
+  - `osint/`: Scripts de OSINT
+    - `osint_tools.py`
+    - `dns_analyzer.py`
+    - `social_media_analyzer.py`
+    - `leak_detector.py`
   - `brute_force/`: Scripts de fuerza bruta
     - `john_brute.py`
     - `hydra_brute.py`
@@ -124,6 +150,9 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
 - ✅ Phishing y OSINT (Completado)
   - ✅ Script de análisis de correos
   - ✅ Detección de indicadores de phishing
+  - ✅ Herramientas de OSINT
+  - ✅ Análisis de URLs maliciosas
+  - ✅ Detección de filtraciones
 - ✅ PuP y Exploits (Completado)
   - ✅ Script de análisis de vulnerabilidades
   - ✅ Detección de exploits conocidos
@@ -138,6 +167,8 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
 3. Crear playbooks de respuesta a incidentes
 4. Desarrollar sistema de monitoreo de red con ntopng
 5. Crear base de datos de firmas de malware
+6. Mejorar capacidades de detección de phishing
+7. Expandir herramientas de OSINT
 
 ## Contribución
 Las contribuciones son bienvenidas. Por favor, asegúrate de:
