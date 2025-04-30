@@ -2,184 +2,118 @@
 # -*- coding: utf-8 -*-
 
 """
-Analizador de Memoria
-Este script realiza un análisis básico de volcados de memoria
-en busca de indicadores de compromiso.
+Analizador de Memoria Forense
+
+Este script proporciona herramientas para el análisis forense de memoria,
+incluyendo análisis de procesos, DLLs cargadas y conexiones de red.
 """
 
-import volatility3
-import argparse
+import os
+import sys
+import psutil
 import logging
 from datetime import datetime
+from typing import Dict, List, Optional
 import json
-import re
-from volatility3.framework import interfaces, automagic, plugins
-from volatility3.framework.configuration import requirements
 
 class MemoryAnalyzer:
-    def __init__(self, memory_file):
-        """
-        Inicializa el analizador de memoria
+    def __init__(self):
+        """Inicializa el analizador de memoria."""
+        self.logger = self._setup_logging()
         
-        Args:
-            memory_file (str): Ruta al archivo de volcado de memoria
-        """
-        self.memory_file = memory_file
-        self.results = {
-            'fecha_analisis': datetime.now().isoformat(),
-            'archivo': memory_file,
-            'procesos': [],
-            'conexiones': [],
-            'archivos_mapeados': [],
-            'indicadores': []
-        }
+    def _setup_logging(self) -> logging.Logger:
+        """Configura el sistema de logging."""
+        logger = logging.getLogger('memory_analyzer')
+        logger.setLevel(logging.INFO)
         
-    def analyze_processes(self):
-        """Analiza los procesos en memoria"""
-        try:
-            # Configurar contexto de Volatility
-            ctx = interfaces.context.Context()
-            automagic.choose_automagic(automagic.available(ctx))
+        # Crear directorio de logs si no existe
+        if not os.path.exists('logs'):
+            os.makedirs('logs')
             
-            # Cargar imagen de memoria
-            layer = automagic.choose_automagic(automagic.available(ctx))
-            layer.load(ctx, self.memory_file)
-            
-            # Obtener lista de procesos
-            pslist = plugins.PsList()
-            for process in pslist.run():
-                self.results['procesos'].append({
-                    'pid': process.pid,
-                    'nombre': process.name,
-                    'ruta': process.path,
-                    'argumentos': process.command_line
-                })
+        # Configurar handler para archivo
+        fh = logging.FileHandler(f'logs/memory_analysis_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log')
+        fh.setLevel(logging.INFO)
+        
+        # Configurar handler para consola
+        ch = logging.StreamHandler()
+        ch.setLevel(logging.INFO)
+        
+        # Formato del log
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        fh.setFormatter(formatter)
+        ch.setFormatter(formatter)
+        
+        logger.addHandler(fh)
+        logger.addHandler(ch)
+        
+        return logger
+
+    def analyze_processes(self) -> List[Dict]:
+        """Analiza los procesos en ejecución."""
+        self.logger.info("Iniciando análisis de procesos...")
+        processes = []
+        
+        for proc in psutil.process_iter(['pid', 'name', 'username', 'memory_percent', 'cpu_percent']):
+            try:
+                process_info = proc.info
+                process_info['connections'] = self._get_process_connections(proc.pid)
+                process_info['dlls'] = self._get_process_dlls(proc.pid)
+                processes.append(process_info)
+            except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+                continue
                 
-        except Exception as e:
-            logging.error(f"Error al analizar procesos: {str(e)}")
-            
-    def analyze_connections(self):
-        """Analiza las conexiones de red en memoria"""
+        self.logger.info(f"Análisis de procesos completado. Procesos encontrados: {len(processes)}")
+        return processes
+
+    def _get_process_connections(self, pid: int) -> List[Dict]:
+        """Obtiene las conexiones de red de un proceso."""
         try:
-            # Configurar contexto de Volatility
-            ctx = interfaces.context.Context()
-            automagic.choose_automagic(automagic.available(ctx))
-            
-            # Cargar imagen de memoria
-            layer = automagic.choose_automagic(automagic.available(ctx))
-            layer.load(ctx, self.memory_file)
-            
-            # Obtener conexiones de red
-            netscan = plugins.Netscan()
-            for connection in netscan.run():
-                self.results['conexiones'].append({
-                    'pid': connection.pid,
-                    'protocolo': connection.protocol,
-                    'ip_origen': connection.local_ip,
-                    'puerto_origen': connection.local_port,
-                    'ip_destino': connection.remote_ip,
-                    'puerto_destino': connection.remote_port,
-                    'estado': connection.state
+            connections = []
+            for conn in psutil.Process(pid).connections():
+                connections.append({
+                    'local_address': conn.laddr,
+                    'remote_address': conn.raddr if conn.raddr else None,
+                    'status': conn.status,
+                    'type': conn.type
                 })
-                
-        except Exception as e:
-            logging.error(f"Error al analizar conexiones: {str(e)}")
-            
-    def analyze_files(self):
-        """Analiza los archivos mapeados en memoria"""
+            return connections
+        except (psutil.NoSuchProcess, psutil.AccessDenied):
+            return []
+
+    def _get_process_dlls(self, pid: int) -> List[str]:
+        """Obtiene las DLLs cargadas por un proceso."""
         try:
-            # Configurar contexto de Volatility
-            ctx = interfaces.context.Context()
-            automagic.choose_automagic(automagic.available(ctx))
-            
-            # Cargar imagen de memoria
-            layer = automagic.choose_automagic(automagic.available(ctx))
-            layer.load(ctx, self.memory_file)
-            
-            # Obtener archivos mapeados
-            handles = plugins.Handles()
-            for handle in handles.run():
-                if handle.type == 'File':
-                    self.results['archivos_mapeados'].append({
-                        'pid': handle.pid,
-                        'nombre': handle.name,
-                        'tipo': handle.type
-                    })
-                    
+            # En Windows, podemos usar wmic para obtener las DLLs
+            if sys.platform == 'win32':
+                import subprocess
+                cmd = f'wmic process where processid={pid} list modules'
+                output = subprocess.check_output(cmd, shell=True).decode()
+                dlls = [line.split()[0] for line in output.split('\n')[1:] if line.strip()]
+                return dlls
+            return []
         except Exception as e:
-            logging.error(f"Error al analizar archivos: {str(e)}")
-            
-    def search_indicators(self):
-        """Busca indicadores de compromiso en memoria"""
-        try:
-            # Patrones de búsqueda
-            patterns = [
-                r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+',
-                r'[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}',
-                r'[0-9a-fA-F]{32}',
-                r'[0-9a-fA-F]{40}',
-                r'[0-9a-fA-F]{64}'
-            ]
-            
-            # Configurar contexto de Volatility
-            ctx = interfaces.context.Context()
-            automagic.choose_automagic(automagic.available(ctx))
-            
-            # Cargar imagen de memoria
-            layer = automagic.choose_automagic(automagic.available(ctx))
-            layer.load(ctx, self.memory_file)
-            
-            # Buscar patrones en memoria
-            yarascan = plugins.YaraScan()
-            for pattern in patterns:
-                for match in yarascan.run(pattern=pattern):
-                    self.results['indicadores'].append({
-                        'tipo': 'Patrón',
-                        'valor': match,
-                        'offset': hex(match.offset)
-                    })
-                    
-        except Exception as e:
-            logging.error(f"Error al buscar indicadores: {str(e)}")
-            
-    def analyze(self):
-        """Realiza el análisis completo de memoria"""
-        self.analyze_processes()
-        self.analyze_connections()
-        self.analyze_files()
-        self.search_indicators()
-        
-    def generate_report(self, output_file):
-        """
-        Genera un reporte con los resultados del análisis
-        
-        Args:
-            output_file (str): Ruta al archivo de salida
-        """
+            self.logger.error(f"Error al obtener DLLs del proceso {pid}: {str(e)}")
+            return []
+
+    def export_results(self, data: List[Dict], output_file: str) -> None:
+        """Exporta los resultados del análisis a un archivo JSON."""
         try:
             with open(output_file, 'w') as f:
-                json.dump(self.results, f, indent=4)
-            logging.info(f"Reporte generado en {output_file}")
+                json.dump(data, f, indent=4)
+            self.logger.info(f"Resultados exportados a {output_file}")
         except Exception as e:
-            logging.error(f"Error al generar reporte: {str(e)}")
+            self.logger.error(f"Error al exportar resultados: {str(e)}")
 
 def main():
-    parser = argparse.ArgumentParser(description='Analizador de Memoria')
-    parser.add_argument('memory_file', help='Ruta al archivo de volcado de memoria')
-    parser.add_argument('--output', default='reporte_memoria.json', 
-                       help='Ruta al archivo de salida')
+    """Función principal del script."""
+    analyzer = MemoryAnalyzer()
     
-    args = parser.parse_args()
+    # Analizar procesos
+    processes = analyzer.analyze_processes()
     
-    # Configurar logging
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s - %(levelname)s - %(message)s'
-    )
-    
-    analyzer = MemoryAnalyzer(args.memory_file)
-    analyzer.analyze()
-    analyzer.generate_report(args.output)
+    # Exportar resultados
+    output_file = f'memory_analysis_{datetime.now().strftime("%Y%m%d_%H%M%S")}.json'
+    analyzer.export_results(processes, output_file)
 
 if __name__ == "__main__":
     main() 

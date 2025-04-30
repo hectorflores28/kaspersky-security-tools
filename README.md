@@ -21,7 +21,20 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
 
 ## Áreas de Enfoque
 - Seguridad en Active Directory
+  - Implementación de LAPS (Local Administrator Password Solution)
+  - Auditoría con PingCastle
+  - Verificación de contraseñas con Have I Been Pwned
+  - Cumplimiento con NIST 800-63B
+  - Gestión de cuentas de administrador local
+  - Prevención de pass-the-hash
 - Aspectos investigativos básicos
+  - Investigación forense digital
+  - Análisis de memoria RAM y disco duro
+  - Análisis de registros de Windows
+  - Análisis de tráfico de red con Netflow
+  - Identificación de usuarios y actividad
+  - Análisis de sistema de archivos
+  - Construcción de líneas de tiempo
 - Software malicioso
   - Análisis heurístico
   - Detección de anomalías
@@ -47,14 +60,27 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
 - Autoruns
 - FTK Imager
 - LAPS (Local Administrator Password Solution)
+- PingCastle
+- Have I Been Pwned API
+- CyberChef
 - Recon-ng (OSINT)
 - Shodan
 - BuiltWith
 - HackerTarget
 - FreeGeoIP
+- Belkasoft Live RAM Capturer
+- Sleuth Kit
+- Netflow Analyzer
 
 ## Scripts Desarrollados
 Para una descripción detallada de cada script, consulta el [README de scripts](scripts/README.md).
+
+### Seguridad en Active Directory
+- [laps_manager.py](scripts/ad/laps_manager.py): Gestión de contraseñas con LAPS
+- [password_checker.py](scripts/ad/password_checker.py): Verificación de contraseñas con Have I Been Pwned
+- [ad_auditor.py](scripts/ad/ad_auditor.py): Auditoría de Active Directory con PingCastle
+- [admin_account_manager.py](scripts/ad/admin_account_manager.py): Gestión de cuentas de administrador local
+- [pass_the_hash_detector.py](scripts/ad/pass_the_hash_detector.py): Detección de intentos de pass-the-hash
 
 ### Análisis y Forense
 - [file_system_analyzer.py](scripts/analisis/file_system_analyzer.py): Analiza el sistema de archivos en busca de indicadores de compromiso
@@ -67,6 +93,11 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
 - [advanced_malware_analyzer.py](scripts/analisis/advanced_malware_analyzer.py): Analizador avanzado de malware
 - [security_log_analyzer.py](scripts/analisis/security_log_analyzer.py): Analiza logs de seguridad
 - [memory_analyzer.py](scripts/analisis/memory_analyzer.py): Analiza volcados de memoria
+- [disk_analyzer.py](scripts/analisis/disk_analyzer.py): Análisis forense de discos duros
+- [event_log_analyzer.py](scripts/analisis/event_log_analyzer.py): Análisis de registros de Windows
+- [netflow_analyzer.py](scripts/analisis/netflow_analyzer.py): Análisis de tráfico de red
+- [timeline_builder.py](scripts/analisis/timeline_builder.py): Construcción de líneas de tiempo
+- [user_activity_analyzer.py](scripts/analisis/user_activity_analyzer.py): Análisis de actividad de usuarios
 
 ### Phishing y OSINT
 - [phishing_detector.py](scripts/phishing/phishing_detector.py): Detecta intentos de phishing en correos electrónicos
@@ -139,7 +170,20 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
 
 ## Estado Actual
 - ✅ Seguridad en Active Directory (Completado)
+  - ✅ Implementación de LAPS
+  - ✅ Auditoría con PingCastle
+  - ✅ Verificación de contraseñas con Have I Been Pwned
+  - ✅ Cumplimiento con NIST 800-63B
+  - ✅ Gestión de cuentas de administrador local
+  - ✅ Prevención de pass-the-hash
 - ✅ Aspectos Investigativos Básicos (Completado)
+  - ✅ Investigación forense digital
+  - ✅ Análisis de memoria y disco
+  - ✅ Análisis de registros de Windows
+  - ✅ Análisis de tráfico de red
+  - ✅ Identificación de usuarios
+  - ✅ Análisis de sistema de archivos
+  - ✅ Construcción de líneas de tiempo
 - ✅ Software Malicioso (Completado)
   - ✅ Análisis heurístico
   - ✅ Detección de anomalías

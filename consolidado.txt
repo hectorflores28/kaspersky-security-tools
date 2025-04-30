@@ -1,0 +1,142 @@
+# Documentación Consolidada de Herramientas de Seguridad
+
+## 1. Investigación Forense Digital
+
+### Fundamentos
+- La investigación forense digital es la ciencia detrás de la resolución de delitos relacionados con la información y los datos informáticos.
+- Los especialistas utilizan sus conocimientos para buscar evidencia que determine los hechos de los delitos informáticos.
+
+### Preguntas Clave
+- ¿Quién llevó a cabo el ataque?
+- ¿Cuándo ocurrió el ataque?
+- ¿Qué servidores o estaciones de trabajo resultaron perjudicados?
+- ¿Cuáles fueron los motivos y objetivos de los atacantes?
+
+### Primeros Pasos ante un Incidente
+- Aislar los ordenadores comprometidos
+- Recopilar información sin destruir indicadores de compromiso
+- Reconfigurar reglas de enrutamiento en lugar de desconectar físicamente
+- Recopilar información de RAM y Disco Duro
+
+## 2. Herramientas de Análisis
+
+### FTK Imager
+- Permite guardar imágenes de unidades en uso
+- Características principales:
+  - Copia de memoria de acceso aleatorio
+  - Se recomienda adjuntar pagefile.sys
+  - Permite montar imágenes para análisis detallado
+
+### Belkasoft Live RAM Capturer
+- Alternativa cuando otras apps evitan la captura de memoria
+- Permite evadir protecciones de memoria
+
+### Autopsy
+- GUI de Sleuth Kit
+- Características:
+  - Análisis de archivos eliminados
+  - Detección de extensiones incorrectas
+  - Análisis de marcas de tiempo
+  - Construcción de líneas de tiempo
+
+## 3. Análisis de Registros de Windows
+
+### Eventos Importantes
+- 4624: Inicio de sesión exitoso
+- 4625: Inicio de sesión fallido
+- 4634: Cierre de sesión
+- 4648: Inicio de sesión con credenciales explícitas
+- 4672: Asignación de privilegios especiales
+- 4673: Operación con privilegios especiales
+- 4768: Solicitud de ticket Kerberos (TGT)
+- 4769: Solicitud de ticket de servicio Kerberos (TGS)
+
+### Tipos de Inicio de Sesión
+- Logon type 2: Interactive (teclado y pantalla)
+- Logon type 3: Network (a través de la red)
+- Logon type 4: Batch (tarea programada)
+- Logon type 5: Service (servicio)
+- Logon type 10: Remote Interactive (RDP)
+
+## 4. Netflow y Análisis de Red
+
+### Protocolo Netflow
+- Desarrollado por Cisco Systems
+- Recopila información estadística de la red
+- Estructura:
+  - Sensor (enrutador Cisco)
+  - Colector
+  - Analizador
+
+### Puertos y Seguridad
+- Puertos del sistema (0-1023)
+- Puertos personalizados (1024-49151)
+- Puertos dinámicos (49151-65535)
+
+### ntopng
+- Herramienta de análisis y supervisión en tiempo real
+- Características:
+  - Historial de conexiones
+  - Análisis de red/detección
+  - Seguimiento de nuevas conexiones
+  - Detección de llamadas de malware
+
+## 5. Seguridad en Active Directory
+
+### LAPS (Local Administrator Password Solution)
+- Herramienta de Microsoft para gestionar contraseñas de administrador local
+- Características:
+  - Cambio periódico de contraseñas
+  - Almacenamiento seguro en AD
+  - Control de acceso granular
+
+### Comandos LAPS
+```powershell
+# Asignación de permisos de autoadministración
+Set-AdmPwdComputerSelfPermission -OrgUnit PCs
+
+# Permiso para leer contraseñas
+Set-AdmPwdReadPasswordPermission -OrgUnit PCs -AllowedPrincipals 'OMEGAB2B\Domain admins', servicedesk
+
+# Permiso para restablecer contraseñas
+Set-AdmPwdResetPasswordPermission -OrgUnit PCs -AllowedPrincipals 'OMEGAB2B\Domain admins', servicedesk
+```
+
+### Verificación de Contraseñas
+- Uso de API Have I Been Pwned
+- Cumplimiento con NIST 800-63B
+- Recomendaciones:
+  - Verificación periódica
+  - No forzar cambios frecuentes
+  - Uso de contraseñas seguras
+
+## 6. Herramientas y Scripts
+
+### Scripts de Análisis
+- event_log_analyzer.py: Análisis de registros de Windows
+- memory_analyzer.py: Análisis de volcados de memoria
+- disk_analyzer.py: Análisis forense de discos
+- netflow_analyzer.py: Análisis de tráfico de red
+- timeline_builder.py: Construcción de líneas de tiempo
+
+### Herramientas Principales
+- Process Hacker
+- Process Explorer
+- Event Log Explorer
+- Autopsy
+- ntopng
+- Fiddler
+- Autoruns
+- FTK Imager
+- LAPS
+- PingCastle
+- Have I Been Pwned API
+- CyberChef
+- Recon-ng
+- Shodan
+- BuiltWith
+- HackerTarget
+- FreeGeoIP
+- Belkasoft Live RAM Capturer
+- Sleuth Kit
+- Netflow Analyzer 
