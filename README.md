@@ -10,6 +10,17 @@
 
 Este proyecto tiene como objetivo documentar y analizar los conceptos, herramientas y técnicas aprendidas en los cursos de Kaspersky Business Hub, con un enfoque en la escalabilidad y automatización de procesos de seguridad.
 
+## Índice
+1. [Objetivos](#objetivos)
+2. [Áreas de Enfoque](#áreas-de-enfoque)
+3. [Herramientas Principales](#herramientas-principales)
+4. [Scripts Desarrollados](#scripts-desarrollados)
+5. [Estructura del Proyecto](#estructura-del-proyecto)
+6. [Estado Actual](#estado-actual)
+7. [Próximos Pasos](#próximos-pasos)
+8. [Contribución](#contribución)
+9. [Licencia](#licencia)
+
 ## Objetivos
 - Documentar implementaciones de seguridad
 - Registrar ajustes y configuraciones necesarias
@@ -20,90 +31,97 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
 - Crear playbooks de respuesta a incidentes
 
 ## Áreas de Enfoque
-- Seguridad en Active Directory
-  - Implementación de LAPS (Local Administrator Password Solution)
-  - Auditoría con PingCastle
-  - Verificación de contraseñas con Have I Been Pwned
-  - Cumplimiento con NIST 800-63B
-  - Gestión de cuentas de administrador local
-  - Prevención de pass-the-hash
-- Aspectos investigativos básicos
-  - Investigación forense digital
-  - Análisis de memoria RAM y disco duro
-  - Análisis de registros de Windows
-  - Análisis de tráfico de red con Netflow
-  - Identificación de usuarios y actividad
-  - Análisis de sistema de archivos
-  - Construcción de líneas de tiempo
-- Software malicioso
-  - Análisis heurístico
-  - Detección de anomalías
-  - Análisis de procesos
-  - Inyección de código
-  - Redes de bots
-  - Fuerza bruta
-- Phishing y OSINT
-  - Detección de phishing por correo electrónico
-  - Análisis de enlaces maliciosos
-  - Inteligencia de código abierto
-  - Auditorías de seguridad con OSINT
-  - Análisis de encabezados de correo
-  - Verificación de SPF y DKIM
-  - Detección de campañas de phishing
-  - Análisis de infraestructura maliciosa
-  - Herramientas de OSINT (Recon-ng, Shodan)
-  - Verificación de URLs y dominios
-- PuP y exploits
-  - Análisis de documentos maliciosos
-  - Detección de exploits
-  - Análisis de kits de exploits
-  - Medidas preventivas
-  - Análisis de comportamiento
-  - Detección de riskware
-  - Análisis de adware
-  - Herramientas de análisis automático
-  - Entornos de prueba
-  - Detección de máquinas virtuales
-- Seguridad de servidores
+
+### 1. Seguridad en Active Directory
+- Implementación de LAPS (Local Administrator Password Solution)
+- Auditoría con PingCastle
+- Verificación de contraseñas con Have I Been Pwned
+- Cumplimiento con NIST 800-63B
+- Gestión de cuentas de administrador local
+- Prevención de pass-the-hash
+
+### 2. Aspectos Investigativos Básicos
+- Investigación forense digital
+- Análisis de memoria RAM y disco duro
+- Análisis de registros de Windows
+- Análisis de tráfico de red con Netflow
+- Identificación de usuarios y actividad
+- Análisis de sistema de archivos
+- Construcción de líneas de tiempo
+
+### 3. Software Malicioso
+- Análisis heurístico
+- Detección de anomalías
+- Análisis de procesos
+- Inyección de código
+- Redes de bots
+- Fuerza bruta
+
+### 4. Phishing y OSINT
+- Detección de phishing por correo electrónico
+- Análisis de enlaces maliciosos
+- Inteligencia de código abierto
+- Auditorías de seguridad con OSINT
+- Análisis de encabezados de correo
+- Verificación de SPF y DKIM
+- Detección de campañas de phishing
+- Análisis de infraestructura maliciosa
+- Herramientas de OSINT (Recon-ng, Shodan)
+- Verificación de URLs y dominios
+
+### 5. PuP y Exploits
+- Análisis de documentos maliciosos
+- Detección de exploits
+- Análisis de kits de exploits
+- Medidas preventivas
+- Análisis de comportamiento
+- Detección de riskware
+- Análisis de adware
+- Herramientas de análisis automático
+- Entornos de prueba
+- Detección de máquinas virtuales
+
+### 6. Seguridad de Servidores
+- Protección del perímetro
+- Análisis de red interna
+- Control de aplicaciones
+- Configuración de firewall
+- Monitoreo de eventos
+- Detección de servicios no estándar
+- Prevención de ataques externos
+- Hardening de servidores
+- Gestión de vulnerabilidades
+- Higiene cibernética
 
 ## Herramientas Principales
+
+### Análisis
 - Process Hacker
 - Process Explorer
 - Event Log Explorer
 - Autopsy
-- ntopng
-- Fiddler
-- Autoruns
 - FTK Imager
-- LAPS (Local Administrator Password Solution)
+
+### Monitoreo
+- ntopng
+- Zabbix
+- Wireshark
+- Fiddler
+
+### Seguridad
+- LAPS
 - PingCastle
-- Have I Been Pwned API
-- CyberChef
-- Recon-ng (OSINT)
+- Autoruns
+- YARA
+
+### OSINT
+- Recon-ng
 - Shodan
 - BuiltWith
 - HackerTarget
-- FreeGeoIP
-- Belkasoft Live RAM Capturer
-- Sleuth Kit
-- Netflow Analyzer
-- PhishTank
-- VirusTotal
-- TrueURL
-- DNS Checker
-- WhatsMyDNS
-- Site24x7 DNS Tools
-- Process Monitor
-- AVZ
-- Cuckoo Sandbox
-- Malwr.com
-- Hashdeep
-- Wireshark
-- IDA Pro
-- OllyDbg
-- x64dbg
 
 ## Scripts Desarrollados
+
 Para una descripción detallada de cada script, consulta el [README de scripts](scripts/README.md).
 
 ### Seguridad en Active Directory
@@ -144,27 +162,27 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
 - [osint_audit.py](scripts/osint/osint_audit.py): Realiza auditorías de seguridad con OSINT
 
 ### Fuerza Bruta
-- [john_brute.py](scripts/README.md#fuerza-bruta): Fuerza bruta con John the Ripper
-- [hydra_brute.py](scripts/README.md#fuerza-bruta): Fuerza bruta con Hydra
+- [john_brute.py](scripts/brute_force/john_brute.py): Fuerza bruta con John the Ripper
+- [hydra_brute.py](scripts/brute_force/hydra_brute.py): Fuerza bruta con Hydra
 
 ### Escaneo de Redes
-- [nmap_scan.py](scripts/README.md#escaneo-de-redes): Script base de Nmap
-- [nmap_quick.py](scripts/README.md#escaneo-de-redes): Escaneo rápido
-- [nmap_completo.py](scripts/README.md#escaneo-de-redes): Escaneo completo
-- [nmap_os.py](scripts/README.md#escaneo-de-redes): Detección de SO
+- [nmap_scan.py](scripts/scanning/nmap_scan.py): Script base de Nmap
+- [nmap_quick.py](scripts/scanning/nmap_quick.py): Escaneo rápido
+- [nmap_completo.py](scripts/scanning/nmap_completo.py): Escaneo completo
+- [nmap_os.py](scripts/scanning/nmap_os.py): Detección de SO
 
 ### Detección de Amenazas
-- [detector_malware.py](scripts/README.md#detección-de-amenazas): Detector básico de malware
-- [malware_detector.py](scripts/README.md#detección-de-amenazas): Detector avanzado de malware
+- [detector_malware.py](scripts/detection/detector_malware.py): Detector básico de malware
+- [malware_detector.py](scripts/detection/malware_detector.py): Detector avanzado de malware
 
 ### Monitoreo
-- [monitor_procesos.py](scripts/README.md#monitoreo): Monitoreo de procesos
+- [monitor_procesos.py](scripts/monitoring/monitor_procesos.py): Monitoreo de procesos
 
 ### Utilidades
-- [dir_enum.py](scripts/README.md#utilidades): Enumeración de directorios
-- [port_scanner.py](scripts/README.md#utilidades): Escáner de puertos
-- [subdomain_enum.py](scripts/README.md#utilidades): Enumeración de subdominios
-- [log_analyzer.py](scripts/README.md#utilidades): Análisis de logs
+- [dir_enum.py](scripts/utilidades/dir_enum.py): Enumeración de directorios
+- [port_scanner.py](scripts/utilidades/port_scanner.py): Escáner de puertos
+- [subdomain_enum.py](scripts/utilidades/subdomain_enum.py): Enumeración de subdominios
+- [log_analyzer.py](scripts/utilidades/log_analyzer.py): Análisis de logs
 
 ### PUP y Exploits
 - [document_analyzer.py](scripts/pup/document_analyzer.py): Analiza documentos maliciosos
@@ -191,97 +209,56 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
 - [security_hardening.py](scripts/server/security_hardening.py): Hardening de servidores
 
 ## Estructura del Proyecto
-- `documentacion/`: Guías y manuales
-  - `malware/`: Documentación sobre software malicioso
-  - `phishing/`: Documentación sobre phishing y OSINT
-- `scripts/`: Scripts de automatización
-  - `utilidades/`: Scripts de utilidad
-    - `malware_detector.py`
-    - `log_analyzer.py`
-    - `port_scanner.py`
-    - `dir_enum.py`
-    - `subdomain_enum.py`
-  - `analisis/`: Scripts de análisis
-    - `email_analyzer.py`
-    - `vulnerability_analyzer.py`
-    - `memory_analyzer.py`
-    - `security_log_analyzer.py`
-    - `server_hardening.py`
-  - `phishing/`: Scripts de phishing
-    - `phishing_detector.py`
-    - `url_analyzer.py`
-  - `osint/`: Scripts de OSINT
-    - `osint_tools.py`
-    - `dns_analyzer.py`
-    - `social_media_analyzer.py`
-    - `leak_detector.py`
-  - `brute_force/`: Scripts de fuerza bruta
-    - `john_brute.py`
-    - `hydra_brute.py`
-  - `scanning/`: Scripts de escaneo
-    - `nmap_scan.py`
-    - `nmap_quick.py`
-    - `nmap_completo.py`
-    - `nmap_os.py`
-  - `monitoring/`: Scripts de monitoreo
-    - `monitor_procesos.py`
-  - `detection/`: Scripts de detección
-    - `detector_malware.py`
-  - `pup/`: Scripts de PUP y exploits
-    - `document_analyzer.py`
-    - `exploit_detector.py`
-    - `kit_analyzer.py`
-    - `behavior_analyzer.py`
-    - `riskware_detector.py`
-    - `adware_remover.py`
-    - `sandbox_analyzer.py`
-    - `vm_detector.py`
-    - `hash_analyzer.py`
-    - `process_monitor.py`
+```
+kaspersky-security-tools/
+├── documentacion/          # Documentación detallada
+│   ├── analisis/          # Guías de análisis
+│   ├── herramientas/      # Manuales de herramientas
+│   ├── playbooks/         # Procedimientos y guías
+│   └── casos/            # Casos de estudio
+├── scripts/               # Scripts de automatización
+│   ├── ad/               # Scripts de Active Directory
+│   ├── analisis/         # Scripts de análisis
+│   ├── brute_force/      # Scripts de fuerza bruta
+│   ├── detection/        # Scripts de detección
+│   ├── monitoring/       # Scripts de monitoreo
+│   ├── osint/            # Scripts de OSINT
+│   ├── phishing/         # Scripts de phishing
+│   ├── pup/              # Scripts de PUP y exploits
+│   ├── scanning/         # Scripts de escaneo
+│   ├── server/           # Scripts de seguridad de servidores
+│   └── utilidades/       # Herramientas auxiliares
+├── playbooks/            # Playbooks de respuesta
+│   ├── incidentes/       # Respuesta a incidentes
+│   ├── forense/         # Análisis forense
+│   └── monitoreo/       # Procedimientos de monitoreo
+├── herramientas/         # Herramientas personalizadas
+│   ├── analisis/        # Herramientas de análisis
+│   ├── monitoreo/       # Herramientas de monitoreo
+│   └── seguridad/       # Herramientas de seguridad
+├── casos/               # Casos de estudio
+│   ├── malware/        # Casos de malware
+│   ├── phishing/       # Casos de phishing
+│   └── forense/        # Casos forenses
+├── logs/               # Registros y logs
+│   ├── analisis/      # Logs de análisis
+│   ├── monitoreo/     # Logs de monitoreo
+│   └── errores/       # Registros de errores
+├── config/            # Archivos de configuración
+│   ├── herramientas/  # Configuración de herramientas
+│   └── scripts/       # Configuración de scripts
+└── tests/            # Pruebas y validaciones
+    ├── unitarios/    # Pruebas unitarias
+    └── integracion/  # Pruebas de integración
+```
 
 ## Estado Actual
 - ✅ Seguridad en Active Directory (Completado)
-  - ✅ Implementación de LAPS
-  - ✅ Auditoría con PingCastle
-  - ✅ Verificación de contraseñas con Have I Been Pwned
-  - ✅ Cumplimiento con NIST 800-63B
-  - ✅ Gestión de cuentas de administrador local
-  - ✅ Prevención de pass-the-hash
 - ✅ Aspectos Investigativos Básicos (Completado)
-  - ✅ Investigación forense digital
-  - ✅ Análisis de memoria y disco
-  - ✅ Análisis de registros de Windows
-  - ✅ Análisis de tráfico de red
-  - ✅ Identificación de usuarios
-  - ✅ Análisis de sistema de archivos
-  - ✅ Construcción de líneas de tiempo
 - ✅ Software Malicioso (Completado)
-  - ✅ Análisis heurístico
-  - ✅ Detección de anomalías
-  - ✅ Análisis de procesos
-  - ✅ Inyección de código
-  - ✅ Redes de bots
-  - ✅ Fuerza bruta
 - ✅ Phishing y OSINT (Completado)
-  - ✅ Script de análisis de correos
-  - ✅ Detección de indicadores de phishing
-  - ✅ Herramientas de OSINT
-  - ✅ Análisis de URLs maliciosas
-  - ✅ Detección de filtraciones
 - ✅ PuP y Exploits (Completado)
-  - ✅ Script de análisis de vulnerabilidades
-  - ✅ Detección de exploits conocidos
 - 🔄 Seguridad de Servidores (En progreso)
-  - ✅ Script de análisis de memoria
-  - ✅ Scripts de hardening
-  - ✅ Monitoreo de servicios
-  - ✅ Protección del perímetro
-  - ✅ Análisis de red interna
-  - ✅ Control de aplicaciones
-  - ✅ Configuración de firewall
-  - ✅ Monitoreo de eventos
-  - ✅ Detección de servicios no estándar
-  - ✅ Prevención de ataques externos
 
 ## Próximos Pasos
 1. Desarrollar scripts de hardening para servidores

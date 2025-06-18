@@ -1,0 +1,97 @@
+# Scripts Faltantes por Categoría
+
+## 1. Seguridad en Active Directory
+- [ ] scripts/ad/laps_manager.py
+- [ ] scripts/ad/password_checker.py
+- [ ] scripts/ad/ad_auditor.py
+- [ ] scripts/ad/admin_account_manager.py
+- [ ] scripts/ad/pass_the_hash_detector.py
+
+## 2. Análisis y Forense
+- [ ] scripts/analisis/file_system_analyzer.py
+- [ ] scripts/analisis/registry_analyzer.py
+- [ ] scripts/analisis/network_traffic_analyzer.py
+- [ ] scripts/analisis/service_monitor.py
+- [ ] scripts/analisis/server_hardening.py
+- [ ] scripts/analisis/vulnerability_analyzer.py
+- [ ] scripts/analisis/email_analyzer.py
+- [ ] scripts/analisis/advanced_malware_analyzer.py
+- [ ] scripts/analisis/security_log_analyzer.py
+- [ ] scripts/analisis/memory_analyzer.py
+- [ ] scripts/analisis/disk_analyzer.py
+- [ ] scripts/analisis/event_log_analyzer.py
+- [ ] scripts/analisis/netflow_analyzer.py
+- [ ] scripts/analisis/timeline_builder.py
+- [ ] scripts/analisis/user_activity_analyzer.py
+
+## 3. Phishing y OSINT
+- [ ] scripts/phishing/phishing_detector.py
+- [ ] scripts/phishing/url_analyzer.py
+- [ ] scripts/osint/osint_tools.py
+- [ ] scripts/osint/dns_analyzer.py
+- [ ] scripts/osint/social_media_analyzer.py
+- [ ] scripts/osint/leak_detector.py
+- [ ] scripts/phishing/email_header_analyzer.py
+- [ ] scripts/phishing/spf_dkim_verifier.py
+- [ ] scripts/phishing/phishing_campaign_analyzer.py
+- [ ] scripts/phishing/infrastructure_analyzer.py
+- [ ] scripts/osint/osint_audit.py
+
+## 4. Fuerza Bruta
+- [ ] scripts/brute_force/john_brute.py
+- [ ] scripts/brute_force/hydra_brute.py
+
+## 5. Escaneo de Redes
+- [ ] scripts/scanning/nmap_scan.py
+- [ ] scripts/scanning/nmap_quick.py
+- [ ] scripts/scanning/nmap_completo.py
+- [ ] scripts/scanning/nmap_os.py
+
+## 6. Detección de Amenazas
+- [ ] scripts/detection/detector_malware.py
+- [ ] scripts/detection/malware_detector.py
+
+## 7. Monitoreo
+- [ ] scripts/monitoring/monitor_procesos.py
+
+## 8. Utilidades
+- [ ] scripts/utilidades/dir_enum.py
+- [ ] scripts/utilidades/port_scanner.py
+- [ ] scripts/utilidades/subdomain_enum.py
+- [ ] scripts/utilidades/log_analyzer.py
+
+## 9. PUP y Exploits
+- [ ] scripts/pup/document_analyzer.py
+- [ ] scripts/pup/exploit_detector.py
+- [ ] scripts/pup/kit_analyzer.py
+- [ ] scripts/pup/behavior_analyzer.py
+- [ ] scripts/pup/riskware_detector.py
+- [ ] scripts/pup/adware_remover.py
+- [ ] scripts/pup/sandbox_analyzer.py
+- [ ] scripts/pup/vm_detector.py
+- [ ] scripts/pup/hash_analyzer.py
+- [ ] scripts/pup/process_monitor.py
+
+## 10. Seguridad de Servidores
+- [x] scripts/server/perimeter_analyzer.py
+- [x] scripts/server/service_monitor.py
+- [x] scripts/server/firewall_config.py
+- [x] scripts/server/app_control.py
+- [ ] scripts/server/event_monitor.py
+- [ ] scripts/server/network_analyzer.py
+- [ ] scripts/server/vulnerability_scanner.py
+- [ ] scripts/server/service_detector.py
+- [ ] scripts/server/attack_prevention.py
+- [ ] scripts/server/security_hardening.py
+
+## Resumen
+- Total de scripts listados: 61
+- Scripts creados: 4
+- Scripts faltantes: 57
+
+## Notas
+1. Los scripts marcados con [x] ya están creados
+2. Los scripts marcados con [ ] están pendientes de crear
+3. Se recomienda crear primero los scripts de seguridad de servidores faltantes
+4. Luego continuar con los scripts de análisis y forense
+5. Finalmente completar los scripts de phishing y OSINT 
