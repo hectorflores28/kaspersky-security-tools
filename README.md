@@ -258,7 +258,7 @@ kaspersky-security-tools/
 - ✅ Software Malicioso (Completado)
 - ✅ Phishing y OSINT (Completado)
 - ✅ PuP y Exploits (Completado)
-- 🔄 Seguridad de Servidores (En progreso)
+- ✅ Seguridad de Servidores (Completado)
 
 ## Próximos Pasos
 1. Desarrollar scripts de hardening para servidores
