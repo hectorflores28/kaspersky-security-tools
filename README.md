@@ -47,7 +47,23 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
   - Análisis de enlaces maliciosos
   - Inteligencia de código abierto
   - Auditorías de seguridad con OSINT
+  - Análisis de encabezados de correo
+  - Verificación de SPF y DKIM
+  - Detección de campañas de phishing
+  - Análisis de infraestructura maliciosa
+  - Herramientas de OSINT (Recon-ng, Shodan)
+  - Verificación de URLs y dominios
 - PuP y exploits
+  - Análisis de documentos maliciosos
+  - Detección de exploits
+  - Análisis de kits de exploits
+  - Medidas preventivas
+  - Análisis de comportamiento
+  - Detección de riskware
+  - Análisis de adware
+  - Herramientas de análisis automático
+  - Entornos de prueba
+  - Detección de máquinas virtuales
 - Seguridad de servidores
 
 ## Herramientas Principales
@@ -71,6 +87,21 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
 - Belkasoft Live RAM Capturer
 - Sleuth Kit
 - Netflow Analyzer
+- PhishTank
+- VirusTotal
+- TrueURL
+- DNS Checker
+- WhatsMyDNS
+- Site24x7 DNS Tools
+- Process Monitor
+- AVZ
+- Cuckoo Sandbox
+- Malwr.com
+- Hashdeep
+- Wireshark
+- IDA Pro
+- OllyDbg
+- x64dbg
 
 ## Scripts Desarrollados
 Para una descripción detallada de cada script, consulta el [README de scripts](scripts/README.md).
@@ -106,6 +137,11 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
 - [dns_analyzer.py](scripts/osint/dns_analyzer.py): Analiza registros DNS y propagación
 - [social_media_analyzer.py](scripts/osint/social_media_analyzer.py): Analiza presencia en redes sociales
 - [leak_detector.py](scripts/osint/leak_detector.py): Detecta filtraciones de información
+- [email_header_analyzer.py](scripts/phishing/email_header_analyzer.py): Analiza encabezados de correo
+- [spf_dkim_verifier.py](scripts/phishing/spf_dkim_verifier.py): Verifica configuraciones SPF y DKIM
+- [phishing_campaign_analyzer.py](scripts/phishing/phishing_campaign_analyzer.py): Analiza campañas de phishing
+- [infrastructure_analyzer.py](scripts/phishing/infrastructure_analyzer.py): Analiza infraestructura maliciosa
+- [osint_audit.py](scripts/osint/osint_audit.py): Realiza auditorías de seguridad con OSINT
 
 ### Fuerza Bruta
 - [john_brute.py](scripts/README.md#fuerza-bruta): Fuerza bruta con John the Ripper
@@ -129,6 +165,30 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
 - [port_scanner.py](scripts/README.md#utilidades): Escáner de puertos
 - [subdomain_enum.py](scripts/README.md#utilidades): Enumeración de subdominios
 - [log_analyzer.py](scripts/README.md#utilidades): Análisis de logs
+
+### PUP y Exploits
+- [document_analyzer.py](scripts/pup/document_analyzer.py): Analiza documentos maliciosos
+- [exploit_detector.py](scripts/pup/exploit_detector.py): Detecta exploits
+- [kit_analyzer.py](scripts/pup/kit_analyzer.py): Analiza kits de exploits
+- [behavior_analyzer.py](scripts/pup/behavior_analyzer.py): Analiza comportamiento de malware
+- [riskware_detector.py](scripts/pup/riskware_detector.py): Detecta riskware
+- [adware_remover.py](scripts/pup/adware_remover.py): Elimina adware
+- [sandbox_analyzer.py](scripts/pup/sandbox_analyzer.py): Analiza malware en entornos de prueba
+- [vm_detector.py](scripts/pup/vm_detector.py): Detecta máquinas virtuales
+- [hash_analyzer.py](scripts/pup/hash_analyzer.py): Analiza hashes de archivos
+- [process_monitor.py](scripts/pup/process_monitor.py): Monitorea procesos
+
+### Seguridad de Servidores
+- [perimeter_analyzer.py](scripts/server/perimeter_analyzer.py): Analiza el perímetro de red
+- [service_monitor.py](scripts/server/service_monitor.py): Monitorea servicios críticos
+- [firewall_config.py](scripts/server/firewall_config.py): Configura reglas de firewall
+- [app_control.py](scripts/server/app_control.py): Control de aplicaciones permitidas
+- [event_monitor.py](scripts/server/event_monitor.py): Monitorea eventos de seguridad
+- [network_analyzer.py](scripts/server/network_analyzer.py): Analiza la red interna
+- [vulnerability_scanner.py](scripts/server/vulnerability_scanner.py): Escanea vulnerabilidades
+- [service_detector.py](scripts/server/service_detector.py): Detecta servicios no estándar
+- [attack_prevention.py](scripts/server/attack_prevention.py): Prevención de ataques externos
+- [security_hardening.py](scripts/server/security_hardening.py): Hardening de servidores
 
 ## Estructura del Proyecto
 - `documentacion/`: Guías y manuales
@@ -167,6 +227,17 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
     - `monitor_procesos.py`
   - `detection/`: Scripts de detección
     - `detector_malware.py`
+  - `pup/`: Scripts de PUP y exploits
+    - `document_analyzer.py`
+    - `exploit_detector.py`
+    - `kit_analyzer.py`
+    - `behavior_analyzer.py`
+    - `riskware_detector.py`
+    - `adware_remover.py`
+    - `sandbox_analyzer.py`
+    - `vm_detector.py`
+    - `hash_analyzer.py`
+    - `process_monitor.py`
 
 ## Estado Actual
 - ✅ Seguridad en Active Directory (Completado)
@@ -202,8 +273,15 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
   - ✅ Detección de exploits conocidos
 - 🔄 Seguridad de Servidores (En progreso)
   - ✅ Script de análisis de memoria
-  - ⏳ Scripts de hardening
-  - ⏳ Monitoreo de servicios
+  - ✅ Scripts de hardening
+  - ✅ Monitoreo de servicios
+  - ✅ Protección del perímetro
+  - ✅ Análisis de red interna
+  - ✅ Control de aplicaciones
+  - ✅ Configuración de firewall
+  - ✅ Monitoreo de eventos
+  - ✅ Detección de servicios no estándar
+  - ✅ Prevención de ataques externos
 
 ## Próximos Pasos
 1. Desarrollar scripts de hardening para servidores

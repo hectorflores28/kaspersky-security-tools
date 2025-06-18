@@ -58,7 +58,192 @@
 - Logon type 5: Service (servicio)
 - Logon type 10: Remote Interactive (RDP)
 
-## 4. Netflow y Análisis de Red
+## 4. Phishing y OSINT
+
+### Análisis de Correos Electrónicos
+- Búsqueda en Microsoft Exchange usando PowerShell
+- Comandos principales:
+  ```powershell
+  Get-Mailbox | Search-mailbox -TargetMailbox admin@dominio.com –TargetFolder Resultados -SearchQuery ""
+  ```
+- Parámetros importantes:
+  - Get-Mailbox: Enumera buzones
+  - Search-Mailbox: Realiza búsquedas
+  - TargetMailbox: Define buzón destino
+  - TargetFolder: Carpeta para resultados
+  - SearchQuery: Consulta de búsqueda
+  - LogOnly: Verificación sin modificar
+  - LogLevel: Nivel de detalle
+
+### Detección de Phishing
+- Análisis de remitentes sospechosos
+- Búsqueda de patrones comunes
+- Verificación de URLs maliciosas
+- Análisis de archivos adjuntos
+- Detección de campañas masivas
+- Uso de operadores lógicos (OR, AND)
+
+### Herramientas de Verificación
+- TrueURL: Decodificación de URLs
+- PhishTank: Verificación de phishing
+- VirusTotal: Análisis de URLs
+- DNS Checker: Verificación de DNS
+- WhatsMyDNS: Propagación DNS
+- Site24x7: Herramientas DNS
+
+### Análisis de Encabezados
+- SPF (Sender Policy Framework)
+  - Verificación de servidores remitentes
+  - Autenticación de correo
+  - Protección contra suplantación
+- DKIM (DomainKeys Identified Mail)
+  - Firmas digitales
+  - Autenticación de dominio
+  - Verificación de integridad
+
+### OSINT (Open Source Intelligence)
+- Herramientas principales:
+  - Recon-ng
+  - Shodan
+  - Google/Yandex/Baidu
+- Etapas de auditoría:
+  1. Conformación de objetivos
+  2. Búsqueda dirigida
+- Tablas en Recon-ng:
+  - domains
+  - companies
+  - ports
+  - hosts
+  - contacts
+  - credentials
+
+### Comandos Recon-ng
+```bash
+show schema          # Ver estructura de tablas
+show table_name      # Ver contenido de tabla
+add table_name v1 v2 # Añadir registro
+load module_name     # Cargar módulo
+use module_name      # Usar módulo
+run                  # Ejecutar módulo
+show modules         # Listar módulos
+```
+
+### Shodan
+- Búsqueda de dispositivos conectados
+- Análisis de servicios
+- Detección de vulnerabilidades
+- Identificación de sistemas operativos
+- Búsqueda de servicios expuestos
+
+## 5. PUP y Exploits
+
+### Documentos Maliciosos
+- Ataques por correo electrónico
+  - Ingeniería social
+  - Archivos adjuntos disfrazados
+  - Macros en documentos
+  - Exploits en documentos
+- Exploits
+  - Subtipo de malware
+  - Aprovechan vulnerabilidades
+  - No requieren acción del usuario
+  - Kits de exploits
+  - Sistemas de envío
+  - Medidas preventivas
+
+### Análisis de Comportamiento
+- Process Monitor (Procmon)
+  - Monitoreo de llamadas del sistema
+  - Interacción con sistema de archivos
+  - Interacción con registro
+  - Actividad de red
+  - Actividad de procesos
+- Características
+  - Columnas personalizadas
+  - Filtrado por proceso
+  - Análisis estadístico
+  - Filtros avanzados
+
+### PUP (Potentially Unwanted Programs)
+- Tipos
+  - Adware
+  - Pornware
+  - Riskware
+- Distribución
+  - Software gratuito
+  - Programas de socios
+  - Instaladores
+- Características
+  - Firma digital
+  - Funciones legítimas
+  - Uso potencialmente malicioso
+
+### Análisis de Software
+- Métodos
+  1. Análisis estático
+     - Antivirus
+     - Búsqueda en Internet
+     - Observación de contenido
+  2. Análisis dinámico
+     - Eventos del sistema
+     - Actividad de red
+  3. Análisis exhaustivo
+     - Depurador
+     - Desensamblador
+
+### Funciones Hash
+- Características
+  - Transformación matemática
+  - Longitud fija
+  - Unicidad
+- Algoritmos
+  - CRC32 (32 bits)
+  - MD5 (128 bits)
+  - SHA-1 (160 bits)
+  - SHA-256 (256 bits)
+- Herramientas
+  - Hashdeep
+  - Modo recursivo
+  - CLI
+
+### Adware
+- Características
+  - Muestra publicidad
+  - Redirecciona búsquedas
+  - Recopila información
+- Distribución
+  - Software gratuito
+  - Drive-by-Download
+- Eliminación
+  - Complementos de navegador
+  - Procesos maliciosos
+  - Herramientas especializadas
+
+### Análisis Automático
+- Entornos de prueba
+  - Cuckoo Sandbox
+  - Malwr.com
+- Características
+  - Registro de API
+  - Tráfico de red
+  - Archivos creados
+  - Memoria de procesos
+  - Capturas de pantalla
+- Firmas
+  - Identificación de tipo
+  - Cambios en sistema
+  - Clasificación
+
+### Detección de Máquinas Virtuales
+- Comprobaciones
+  - Claves de registro
+  - Procesos en ejecución
+  - Número de serie de disco
+- Mecanismos de defensa
+  - Evasión de análisis
+  - Comportamiento alternativo
+
+## 6. Netflow y Análisis de Red
 
 ### Protocolo Netflow
 - Desarrollado por Cisco Systems
@@ -81,7 +266,7 @@
   - Seguimiento de nuevas conexiones
   - Detección de llamadas de malware
 
-## 5. Seguridad en Active Directory
+## 7. Seguridad en Active Directory
 
 ### LAPS (Local Administrator Password Solution)
 - Herramienta de Microsoft para gestionar contraseñas de administrador local
@@ -110,7 +295,7 @@ Set-AdmPwdResetPasswordPermission -OrgUnit PCs -AllowedPrincipals 'OMEGAB2B\Doma
   - No forzar cambios frecuentes
   - Uso de contraseñas seguras
 
-## 6. Herramientas y Scripts
+## 8. Herramientas y Scripts
 
 ### Scripts de Análisis
 - event_log_analyzer.py: Análisis de registros de Windows
@@ -139,4 +324,91 @@ Set-AdmPwdResetPasswordPermission -OrgUnit PCs -AllowedPrincipals 'OMEGAB2B\Doma
 - FreeGeoIP
 - Belkasoft Live RAM Capturer
 - Sleuth Kit
-- Netflow Analyzer 
+- Netflow Analyzer
+
+## 6. Seguridad de Servidores
+
+### Ataques Comunes
+- 80% de ataques son generalizados
+- Adivinación de contraseñas (RDP, MSSQL)
+- Explotación de vulnerabilidades conocidas
+- Servicios vulnerables expuestos
+
+### Higiene Cibernética
+1. Conocerse a uno mismo
+   - Inventario de sistemas
+   - Gestión de configuración
+2. Prepararse para lo peor
+   - Copias de seguridad
+3. Minimizar riesgos
+   - Gestión de vulnerabilidades
+   - Protección de servidores
+
+### Protección por Capas
+- Ningún sistema es completamente seguro
+- Dificultar el acceso al atacante
+- Proteger la información con múltiples capas
+- Implementar defensa en profundidad
+
+### Protección del Perímetro
+- Análisis con Shodan
+  - Búsqueda de dispositivos conectados
+  - Detección de vulnerabilidades
+  - Identificación de servicios expuestos
+- Análisis con Nmap
+  - Escaneo de puertos
+  - Detección de servicios
+  - Identificación de sistemas operativos
+  - Análisis de vulnerabilidades
+
+### Servicios Críticos
+- SMBv1 (WannaCry, NotPetya)
+- RDP (fuerza bruta)
+- MSSQL (vulnerabilidades)
+- Servicios web (exploits)
+
+### Análisis de Red Interna
+- Detección de servicios no estándar
+- Monitoreo de conexiones
+- Análisis de tráfico
+- Identificación de anomalías
+
+### Control de Aplicaciones
+- Lista blanca de aplicaciones
+- Políticas de restricción de software
+- Auditoría de eventos
+- Monitoreo de procesos
+
+### Firewall de Windows
+- Reglas de entrada/salida
+- Perfiles de firewall
+- Registro de eventos
+- Bloqueo de conexiones no autorizadas
+
+### Eventos de PowerShell
+- Monitoreo de scripts
+- Detección de comandos maliciosos
+- Análisis de actividad sospechosa
+- Registro de eventos de seguridad
+
+### Comandos Útiles
+```bash
+# Escaneo de red
+nmap -T4 -A -v -Pn [rango_ip]
+
+# Análisis de servicios
+nmap -sV -p [puertos] [ip]
+
+# Monitoreo de eventos
+wevtutil qe Security /f:text
+
+# Configuración de firewall
+netsh advfirewall show currentprofile
+```
+
+### Mejores Prácticas
+1. Mantener sistemas actualizados
+2. Implementar control de acceso
+3. Monitorear eventos de seguridad
+4. Realizar análisis periódicos
+5. Documentar cambios y configuraciones 

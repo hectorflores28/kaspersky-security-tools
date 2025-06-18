@@ -30,13 +30,43 @@ Este proyecto tiene como objetivo principal documentar y analizar aspectos funda
    - Verificación de URLs
    - Búsqueda de información en fuentes abiertas
    - Análisis de redes sociales
+   - Herramientas de OSINT
+   - Análisis de encabezados de correo
+   - Verificación de SPF y DKIM
+   - Detección de campañas de phishing
+   - Análisis de infraestructura maliciosa
+   - Auditorías de seguridad con OSINT
 
-4. Seguridad en Active Directory
+4. PUP y Exploits
+   - Análisis de documentos maliciosos
+   - Detección de exploits
+   - Análisis de kits de exploits
+   - Medidas preventivas
+   - Análisis de comportamiento
+   - Detección de riskware
+   - Análisis de adware
+   - Herramientas de análisis automático
+   - Entornos de prueba
+   - Detección de máquinas virtuales
+
+5. Seguridad en Active Directory
    - Implementación de LAPS
    - Auditoría con PingCastle
    - Verificación de contraseñas
    - Gestión de cuentas de administrador
    - Prevención de ataques pass-the-hash
+
+5. Seguridad de Servidores
+   - Protección del perímetro
+   - Análisis de red interna
+   - Control de aplicaciones
+   - Configuración de firewall
+   - Monitoreo de eventos
+   - Detección de servicios no estándar
+   - Prevención de ataques externos
+   - Hardening de servidores
+   - Gestión de vulnerabilidades
+   - Higiene cibernética
 
 ### Herramientas Principales
 - Process Hacker
@@ -52,6 +82,26 @@ Este proyecto tiene como objetivo principal documentar y analizar aspectos funda
 - Shodan
 - BuiltWith
 - HackerTarget
+- PhishTank
+- VirusTotal
+- TrueURL
+- DNS Checker
+- WhatsMyDNS
+- Site24x7 DNS Tools
+- Process Monitor
+- AVZ
+- Cuckoo Sandbox
+- Malwr.com
+- Hashdeep
+- Wireshark
+- IDA Pro
+- OllyDbg
+- x64dbg
+- Nmap
+- Windows Firewall
+- Local Security Policy
+- Zabbix
+- PowerShell
 
 ### Scripts Desarrollados
 1. Análisis Forense
@@ -75,13 +125,42 @@ Este proyecto tiene como objetivo principal documentar y analizar aspectos funda
    - `dns_analyzer.py`
    - `social_media_analyzer.py`
    - `leak_detector.py`
+   - `email_header_analyzer.py`
+   - `spf_dkim_verifier.py`
+   - `phishing_campaign_analyzer.py`
+   - `infrastructure_analyzer.py`
+   - `osint_audit.py`
 
-4. Seguridad en Active Directory
+4. PUP y Exploits
+   - `document_analyzer.py`
+   - `exploit_detector.py`
+   - `kit_analyzer.py`
+   - `behavior_analyzer.py`
+   - `riskware_detector.py`
+   - `adware_remover.py`
+   - `sandbox_analyzer.py`
+   - `vm_detector.py`
+   - `hash_analyzer.py`
+   - `process_monitor.py`
+
+5. Seguridad en Active Directory
    - `laps_manager.py`
    - `password_checker.py`
    - `ad_auditor.py`
    - `admin_account_manager.py`
    - `pass_the_hash_detector.py`
+
+5. Seguridad de Servidores
+   - `perimeter_analyzer.py`
+   - `service_monitor.py`
+   - `firewall_config.py`
+   - `app_control.py`
+   - `event_monitor.py`
+   - `network_analyzer.py`
+   - `vulnerability_scanner.py`
+   - `service_detector.py`
+   - `attack_prevention.py`
+   - `security_hardening.py`
 
 ## 2. Estructura del Proyecto
 ```
@@ -323,6 +402,18 @@ kaspersky-security-tools/
    - `data_exporter.py`
    - `config_manager.py`
    - `backup_manager.py`
+
+5. Seguridad de Servidores
+   - `perimeter_analyzer.py`
+   - `service_monitor.py`
+   - `firewall_config.py`
+   - `app_control.py`
+   - `event_monitor.py`
+   - `network_analyzer.py`
+   - `vulnerability_scanner.py`
+   - `service_detector.py`
+   - `attack_prevention.py`
+   - `security_hardening.py`
 
 ### Errores Conocidos
 1. Proceso de Documentación
