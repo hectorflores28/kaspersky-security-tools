@@ -1,45 +1,65 @@
 import requests
 from bs4 import BeautifulSoup
+import time
+import random
 from requests.exceptions import RequestException
 import ssl
 
+# A list of common User-Agent strings
+user_agents = [
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Firefox/89.0',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:89.0) Gecko/20100101 Firefox/89.0'
+]
+
+# Disable SSL warnings for this script
+from urllib3.exceptions import InsecureRequestWarning
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+
+# Define the output file name
+output_file = "all_faqs.txt"
+
 def get_faqs_from_url(url):
     """
-    Scrapes a given URL to find and print FAQ content, handling SSL and 403 errors.
+    Scrapes a given URL to find FAQ content and saves it to a file.
     """
     try:
-        # Define headers to mimic a web browser
+        # Select a random User-Agent from the list
         headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+            'User-Agent': random.choice(user_agents),
             'Accept-Language': 'en-US,en;q=0.9',
-            'Referer': url # Referer header can sometimes help with 403 errors
+            'Referer': url 
         }
         
-        # Fetch the URL content, with SSL verification turned off
-        response = requests.get(url, headers=headers, timeout=15, verify=False)
-        response.raise_for_status()  # Raise an HTTPError for bad responses (4xx or 5xx)
+        # Add a random delay before making the request
+        time.sleep(random.uniform(2, 5))
         
-        # Parse the HTML content
+        response = requests.get(url, headers=headers, timeout=15, verify=False)
+        response.raise_for_status()
+        
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        # Keywords and common selectors to look for
         faq_keywords = ['faq', 'frequently asked questions', 'q&a', 'help center', 'preguntas frecuentes']
-        faq_selectors = ['div', 'section', 'ul', 'article']
+        faq_selectors = ['div', 'section', 'ul', 'article', 'main']
         
         found_faqs = False
         
-        # Search for elements containing the keywords
         for selector in faq_selectors:
             for element in soup.find_all(selector):
-                # Check if the text or ID/class contains an FAQ keyword
                 if any(keyword in element.get_text().lower() for keyword in faq_keywords) or \
                    any(keyword in str(element.get('id', '')).lower() for keyword in faq_keywords) or \
                    any(keyword in str(element.get('class', '')).lower() for keyword in faq_keywords):
                     
-                    # Print the found content and a separator
-                    print(f"--- Found FAQ content from {url} ---")
-                    print(element.get_text(separator="\n", strip=True))
-                    print("-" * 50)
+                    faq_content = element.get_text(separator="\n", strip=True)
+
+                    # Append the found FAQs to the text file
+                    with open(output_file, "a", encoding="utf-8") as f:
+                        f.write(f"--- FAQ content from {url} ---\n")
+                        f.write(faq_content)
+                        f.write("\n" + "-" * 50 + "\n\n")
+
+                    print(f"--- Successfully saved FAQ content from {url} ---")
                     found_faqs = True
                     break
             if found_faqs:
@@ -47,13 +67,9 @@ def get_faqs_from_url(url):
         
         if not found_faqs:
             print(f"--- No clear FAQ section found on {url} ---")
-        
+            
     except requests.exceptions.HTTPError as errh:
         print(f"--- HTTP Error accessing {url}: {errh} ---")
-    except requests.exceptions.ConnectionError as errc:
-        print(f"--- Connection Error accessing {url}: {errc} ---")
-    except requests.exceptions.Timeout as errt:
-        print(f"--- Timeout Error accessing {url}: {errt} ---")
     except RequestException as e:
         print(f"--- An unexpected error occurred while accessing {url}: {e} ---")
 
@@ -61,12 +77,7 @@ def get_faqs_from_url(url):
 urls_to_scrape = [
     'https://www.apple.com/shop/help/payments',
     'https://www.amazon.com/gp/help/customer/display.html?nodeId=GN7B6F3E689C8G6Z'
-]
-
-# Disable the SSL warning for requests.get(verify=False)
-from urllib3.exceptions import InsecureRequestWarning
-requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 # Iterate through the URL array and call the scraper function
 for url in urls_to_scrape:
-    get_faqs_from_url(url.strip()) # .strip() removes whitespace from the URL
+    get_faqs_from_url(url.strip())
