@@ -120,16 +120,8 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
 - BuiltWith
 - HackerTarget
 
-## Scripts Desarrollados
-
-Para una descripción detallada de cada script, consulta el [README de scripts](scripts/README.md).
-
 ### Seguridad en Active Directory
-- [laps_manager.py](scripts/ad/laps_manager.py): Gestión de contraseñas con LAPS
 - [password_checker.py](scripts/ad/password_checker.py): Verificación de contraseñas con Have I Been Pwned
-- [ad_auditor.py](scripts/ad/ad_auditor.py): Auditoría de Active Directory con PingCastle
-- [admin_account_manager.py](scripts/ad/admin_account_manager.py): Gestión de cuentas de administrador local
-- [pass_the_hash_detector.py](scripts/ad/pass_the_hash_detector.py): Detección de intentos de pass-the-hash
 
 ### Análisis y Forense
 - [file_system_analyzer.py](scripts/analisis/file_system_analyzer.py): Analiza el sistema de archivos en busca de indicadores de compromiso
@@ -142,24 +134,10 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
 - [advanced_malware_analyzer.py](scripts/analisis/advanced_malware_analyzer.py): Analizador avanzado de malware
 - [security_log_analyzer.py](scripts/analisis/security_log_analyzer.py): Analiza logs de seguridad
 - [memory_analyzer.py](scripts/analisis/memory_analyzer.py): Analiza volcados de memoria
-- [disk_analyzer.py](scripts/analisis/disk_analyzer.py): Análisis forense de discos duros
 - [event_log_analyzer.py](scripts/analisis/event_log_analyzer.py): Análisis de registros de Windows
-- [netflow_analyzer.py](scripts/analisis/netflow_analyzer.py): Análisis de tráfico de red
-- [timeline_builder.py](scripts/analisis/timeline_builder.py): Construcción de líneas de tiempo
-- [user_activity_analyzer.py](scripts/analisis/user_activity_analyzer.py): Análisis de actividad de usuarios
 
 ### Phishing y OSINT
-- [phishing_detector.py](scripts/phishing/phishing_detector.py): Detecta intentos de phishing en correos electrónicos
-- [url_analyzer.py](scripts/phishing/url_analyzer.py): Analiza URLs maliciosas
-- [osint_tools.py](scripts/osint/osint_tools.py): Herramientas de inteligencia de código abierto
-- [dns_analyzer.py](scripts/osint/dns_analyzer.py): Analiza registros DNS y propagación
-- [social_media_analyzer.py](scripts/osint/social_media_analyzer.py): Analiza presencia en redes sociales
-- [leak_detector.py](scripts/osint/leak_detector.py): Detecta filtraciones de información
-- [email_header_analyzer.py](scripts/phishing/email_header_analyzer.py): Analiza encabezados de correo
-- [spf_dkim_verifier.py](scripts/phishing/spf_dkim_verifier.py): Verifica configuraciones SPF y DKIM
-- [phishing_campaign_analyzer.py](scripts/phishing/phishing_campaign_analyzer.py): Analiza campañas de phishing
-- [infrastructure_analyzer.py](scripts/phishing/infrastructure_analyzer.py): Analiza infraestructura maliciosa
-- [osint_audit.py](scripts/osint/osint_audit.py): Realiza auditorías de seguridad con OSINT
+- [phishing_analyzer.py](scripts/phishing/phishing_analyzer.py): Realiza auditorías incluyendo detección de URLs sospechosas y análisis de contenido de correos electrónicos.
 
 ### Fuerza Bruta
 - [john_brute.py](scripts/brute_force/john_brute.py): Fuerza bruta con John the Ripper
@@ -173,7 +151,6 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
 
 ### Detección de Amenazas
 - [detector_malware.py](scripts/detection/detector_malware.py): Detector básico de malware
-- [malware_detector.py](scripts/detection/malware_detector.py): Detector avanzado de malware
 
 ### Monitoreo
 - [monitor_procesos.py](scripts/monitoring/monitor_procesos.py): Monitoreo de procesos
@@ -201,52 +178,32 @@ Para una descripción detallada de cada script, consulta el [README de scripts](
 - [service_monitor.py](scripts/server/service_monitor.py): Monitorea servicios críticos
 - [firewall_config.py](scripts/server/firewall_config.py): Configura reglas de firewall
 - [app_control.py](scripts/server/app_control.py): Control de aplicaciones permitidas
-- [event_monitor.py](scripts/server/event_monitor.py): Monitorea eventos de seguridad
-- [network_analyzer.py](scripts/server/network_analyzer.py): Analiza la red interna
-- [vulnerability_scanner.py](scripts/server/vulnerability_scanner.py): Escanea vulnerabilidades
-- [service_detector.py](scripts/server/service_detector.py): Detecta servicios no estándar
-- [attack_prevention.py](scripts/server/attack_prevention.py): Prevención de ataques externos
-- [security_hardening.py](scripts/server/security_hardening.py): Hardening de servidores
+
+### Web-Scrapping
+- [qanda.py](scripts/web_scrapping/qanda.py): Web Scrapping utilizando Qanda
 
 ## Estructura del Proyecto
 ```
 kaspersky-security-tools/
 ├── documentacion/          # Documentación detallada
-│   ├── analisis/          # Guías de análisis
-│   ├── herramientas/      # Manuales de herramientas
-│   ├── playbooks/         # Procedimientos y guías
-│   └── casos/            # Casos de estudio
+│   ├── active_directory/  # Seguridad de Active Directory
+│   ├── exploits/          # Exploits
+│   ├── investigación/     # Investigación Forense
+│   ├── malware/           # Software Malicioso
+│   ├── phishing/          # Phishing OSINT
+│   └── servidores/        # Seguridad de Servidores
 ├── scripts/               # Scripts de automatización
 │   ├── ad/               # Scripts de Active Directory
-│   ├── analisis/         # Scripts de análisis
-│   ├── brute_force/      # Scripts de fuerza bruta
-│   ├── detection/        # Scripts de detección
-│   ├── monitoring/       # Scripts de monitoreo
-│   ├── osint/            # Scripts de OSINT
-│   ├── phishing/         # Scripts de phishing
-│   ├── pup/              # Scripts de PUP y exploits
-│   ├── scanning/         # Scripts de escaneo
-│   ├── server/           # Scripts de seguridad de servidores
-│   └── utilidades/       # Herramientas auxiliares
-├── playbooks/            # Playbooks de respuesta
-│   ├── incidentes/       # Respuesta a incidentes
-│   ├── forense/         # Análisis forense
-│   └── monitoreo/       # Procedimientos de monitoreo
-├── herramientas/         # Herramientas personalizadas
-│   ├── analisis/        # Herramientas de análisis
-│   ├── monitoreo/       # Herramientas de monitoreo
-│   └── seguridad/       # Herramientas de seguridad
-├── casos/               # Casos de estudio
-│   ├── malware/        # Casos de malware
-│   ├── phishing/       # Casos de phishing
-│   └── forense/        # Casos forenses
-├── logs/               # Registros y logs
-│   ├── analisis/      # Logs de análisis
-│   ├── monitoreo/     # Logs de monitoreo
-│   └── errores/       # Registros de errores
+│   ├── analisis/         # Scripts de Análisis
+│   ├── brute_force/      # Scripts de Fuerza Bruta
+│   ├── detection/        # Scripts de Detección
+│   ├── monitoring/       # Scripts de Monitoreo
+│   ├── phishing/         # Scripts de Phishing
+│   ├── scanning/         # Scripts de Escaneo
+│   ├── server/           # Scripts de Seguridad de servidores
+│   ├── utilidades/       # Herramientas auxiliares
+│   └── web_scrapping/    # Herramientas de analisis web
 ├── config/            # Archivos de configuración
-│   ├── herramientas/  # Configuración de herramientas
-│   └── scripts/       # Configuración de scripts
 └── tests/            # Pruebas y validaciones
     ├── unitarios/    # Pruebas unitarias
     └── integracion/  # Pruebas de integración
@@ -259,15 +216,6 @@ kaspersky-security-tools/
 - ✅ Phishing y OSINT (Completado)
 - ✅ PuP y Exploits (Completado)
 - ✅ Seguridad de Servidores (Completado)
-
-## Próximos Pasos
-1. Desarrollar scripts de hardening para servidores
-2. Implementar sistema de monitoreo de servicios
-3. Crear playbooks de respuesta a incidentes
-4. Desarrollar sistema de monitoreo de red con ntopng
-5. Crear base de datos de firmas de malware
-6. Mejorar capacidades de detección de phishing
-7. Expandir herramientas de OSINT
 
 ## Contribución
 Las contribuciones son bienvenidas. Por favor, asegúrate de:

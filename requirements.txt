@@ -1,10 +1,10 @@
 # Análisis y Forense
 pefile==2023.2.7
-yara-python==4.2.3
+yara-python==4.3.1
 volatility3==2.5.0
 python-magic==0.4.27
 scapy==2.5.0
-pandas==2.1.0
+pandas==2.1.4 
 numpy==1.24.3
 
 # Redes y Escaneo
