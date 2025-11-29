@@ -120,6 +120,8 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
 - BuiltWith
 - HackerTarget
 
+## Scripts
+
 ### Seguridad en Active Directory
 - [password_checker.py](scripts/ad/password_checker.py): Verificación de contraseñas con Have I Been Pwned
 
