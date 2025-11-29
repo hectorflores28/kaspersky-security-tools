@@ -161,18 +161,6 @@ Este proyecto tiene como objetivo documentar y analizar los conceptos, herramien
 - [subdomain_enum.py](scripts/utilidades/subdomain_enum.py): Enumeración de subdominios
 - [log_analyzer.py](scripts/utilidades/log_analyzer.py): Análisis de logs
 
-### PUP y Exploits
-- [document_analyzer.py](scripts/pup/document_analyzer.py): Analiza documentos maliciosos
-- [exploit_detector.py](scripts/pup/exploit_detector.py): Detecta exploits
-- [kit_analyzer.py](scripts/pup/kit_analyzer.py): Analiza kits de exploits
-- [behavior_analyzer.py](scripts/pup/behavior_analyzer.py): Analiza comportamiento de malware
-- [riskware_detector.py](scripts/pup/riskware_detector.py): Detecta riskware
-- [adware_remover.py](scripts/pup/adware_remover.py): Elimina adware
-- [sandbox_analyzer.py](scripts/pup/sandbox_analyzer.py): Analiza malware en entornos de prueba
-- [vm_detector.py](scripts/pup/vm_detector.py): Detecta máquinas virtuales
-- [hash_analyzer.py](scripts/pup/hash_analyzer.py): Analiza hashes de archivos
-- [process_monitor.py](scripts/pup/process_monitor.py): Monitorea procesos
-
 ### Seguridad de Servidores
 - [perimeter_analyzer.py](scripts/server/perimeter_analyzer.py): Analiza el perímetro de red
 - [service_monitor.py](scripts/server/service_monitor.py): Monitorea servicios críticos
